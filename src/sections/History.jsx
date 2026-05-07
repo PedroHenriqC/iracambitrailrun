@@ -67,7 +67,7 @@ const History = () => {
           </div>
 
           <SectionTitle
-            label="Nossa História"
+            
             title={
               <>
                 De trilha em

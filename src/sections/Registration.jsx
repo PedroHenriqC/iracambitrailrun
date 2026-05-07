@@ -104,10 +104,9 @@ const Registration = () => {
             </h2>
 
             <p className="mb-8 max-w-2xl font-body text-lg leading-relaxed text-cream-muted md:text-xl">
-              As inscrições para a 2ª edição do Iracambi Trail Running ainda
-              não estão abertas. Esta página apresenta o evento e direciona
-              para o ambiente oficial de inscrição quando o link estiver
-              disponível.
+              As inscrições para a 2ª edição do Iracambi Trail Run ainda não
+              estão abertas. Esta página apresenta o evento e direciona para o
+              ambiente oficial de inscrição quando o link estiver disponível.
             </p>
 
             <div className="mb-10 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2">
@@ -149,7 +148,7 @@ const Registration = () => {
               whileTap={{ scale: 0.98 }}
               aria-label="Acessar página externa de inscrição"
             >
-              Inscreva-se agora
+              Inscrições em Breve
               <ArrowUpRight size={16} strokeWidth={2.4} aria-hidden="true" />
             </motion.a>
 

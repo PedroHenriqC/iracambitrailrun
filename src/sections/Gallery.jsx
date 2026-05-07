@@ -46,7 +46,7 @@ const Gallery = () => {
           </div>
 
           <SectionTitle
-            label="Galeria"
+            
             title={
               <>
                 Momentos que
@@ -54,7 +54,7 @@ const Gallery = () => {
                 ficam na <em className="not-italic gradient-text">memória</em>
               </>
             }
-            subtitle="Imagens da 1ª edição, dos voluntários, da reserva e do espírito que move o Iracambi Trail Running."
+            subtitle="Imagens da 1ª edição, dos voluntários, da reserva e do espírito que move o Iracambi Trail Run."
           />
         </motion.div>
 

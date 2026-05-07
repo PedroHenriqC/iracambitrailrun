@@ -12,7 +12,7 @@ const QuoteSection = () => {
         background:
           "radial-gradient(circle at 50% 0%, rgba(201,168,76,0.11), transparent 30rem), radial-gradient(circle at 12% 82%, rgba(46,204,113,0.1), transparent 28rem), linear-gradient(135deg, #050d07 0%, #0a2a0a 48%, #050d07 100%)",
       }}
-      aria-label="Citação sobre o Iracambi Trail Running"
+      aria-label="Citação sobre o Iracambi Trail Run"
     >
       <div className="noise-overlay pointer-events-none absolute inset-0 opacity-35" />
 
@@ -69,7 +69,7 @@ const QuoteSection = () => {
             </p>
 
             <p className="mt-3 font-body text-sm leading-relaxed text-cream-subtle">
-              Sobre a 1ª edição do Iracambi Trail Running, 2025
+              Sobre a 1ª edição do Iracambi Trail Run, 2025
             </p>
           </footer>
         </blockquote>

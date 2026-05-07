@@ -51,7 +51,7 @@ const About = () => {
                   <em className="not-italic gradient-text">transforma</em>
                 </>
               }
-              subtitle="O Iracambi Trail Running não é só uma corrida. É uma experiência imersiva na Mata Atlântica, com propósito real, comunidade e impacto ambiental."
+              subtitle="O Iracambi Trail Run não é só uma corrida. É uma experiência imersiva na Mata Atlântica, com propósito real, comunidade e impacto ambiental."
             />
 
             <div className="mb-10 space-y-6">

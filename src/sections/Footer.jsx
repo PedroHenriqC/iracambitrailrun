@@ -68,7 +68,7 @@ const Footer = () => {
                 </span>
 
                 <span className="mt-1 block font-mono text-[10px] uppercase tracking-[0.25em] text-trail-gold">
-                  Trail Running
+                  Trail Run
                 </span>
               </div>
             </div>
@@ -168,7 +168,7 @@ const Footer = () => {
       >
         <div className="section-container flex flex-col items-center justify-between gap-5 lg:flex-row">
           <p className="text-center font-mono text-[10px] uppercase tracking-widest text-cream-subtle lg:text-left">
-            © {year} Iracambi Trail Running · ONG Iracambi · Todos os direitos
+            © {year} Iracambi Trail Run · ONG Iracambi · Todos os direitos
             reservados
           </p>
 
@@ -196,7 +196,7 @@ const Footer = () => {
               />
 
               <p className="font-mono text-[10px] uppercase tracking-widest text-cream-subtle">
-                Preservando a Mata Atlântica desde 2003
+                Preservando a Mata Atlântica desde 2000
               </p>
             </div>
           </div>

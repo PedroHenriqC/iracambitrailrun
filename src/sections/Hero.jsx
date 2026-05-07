@@ -30,7 +30,7 @@ const heroInfo = [
   {
     icon: Route,
     label: "Percurso",
-    value: "Trail Running · ~8km",
+    value: "Trail Run · ~8km",
   },
 ];
 
@@ -287,8 +287,8 @@ const Hero = () => {
 
             <div className="mt-5 rounded-2xl bg-forest-400/10 p-4">
               <p className="text-sm leading-relaxed text-cream-muted">
-                Uma experiência de trail running conectada à floresta, à
-                comunidade e ao impacto ambiental.
+                Uma experiência de trail Run conectada à floresta, à comunidade
+                e ao impacto ambiental.
               </p>
             </div>
           </motion.aside>
@@ -296,13 +296,14 @@ const Hero = () => {
       </div>
 
       {/* Scroll indicator */}
+      {/* Scroll indicator */}
       <a
         href="#sobre"
-        className="absolute bottom-8 left-1/2 z-20 flex -translate-x-1/2 flex-col items-center gap-2 rounded-full px-4 py-2 transition-colors hover:text-trail-gold"
+        className="absolute bottom-6 right-6 z-20 hidden flex-col items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-4 py-3 text-cream-subtle backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:border-trail-gold/30 hover:text-trail-gold lg:flex"
         aria-label="Rolar para a seção Sobre"
       >
-        <span className="font-mono text-[9px] uppercase tracking-[0.26em] text-cream-subtle">
-          Role para baixo
+        <span className="font-mono text-[9px] uppercase tracking-[0.22em]">
+          Role
         </span>
 
         <ArrowDown size={16} className="text-trail-gold animate-bounce" />

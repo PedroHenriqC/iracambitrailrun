@@ -3,7 +3,7 @@
 // ============================================================
 
 export const eventInfo = {
-  name: "Iracambi Trail Running",
+  name: "Iracambi Trail Run",
   shortName: "ITR",
   edition: "2ª Edição",
   year: 2026,
@@ -74,11 +74,11 @@ export const timeline = [
   {
     year: "2026",
     title: "Mountain Bike",
-    subtitle: "Novidade",
+    subtitle: "Em breve",
     description:
       "Em 2026 o evento ganha uma nova modalidade: pela primeira vez, uma edição de Mountain Bike será realizada nas trilhas da reserva Iracambi, ampliando o alcance do evento e conectando ainda mais pessoas à natureza.",
     highlight: false,
-    tag: "Novidade",
+    tag: "Em breve",
   },
   {
     year: "2026",
@@ -152,7 +152,7 @@ export const gallery = [
 export const raceInfo = [
   { icon: "map-pin", label: "Local", value: "Rosário da Limeira, MG" },
   { icon: "trees", label: "Ambiente", value: "Mata Atlântica" },
-  { icon: "footprints", label: "Modalidade", value: "Trail Running" },
+  { icon: "footprints", label: "Modalidade", value: "Trail Run" },
   { icon: "route", label: "Percurso", value: "~8km" },
   { icon: "mountain", label: "Terreno", value: "Subidas, descidas e travessias" },
   { icon: "users", label: "Edição Anterior", value: "80+ atletas" },
@@ -160,25 +160,29 @@ export const raceInfo = [
 
 export const sponsors = {
   master: [
-    { name: "Iracambi", logo: "/images/logo-iracambi.png", url: "https://iracambi.com" },
+    {
+      name: "Iracambi",
+      logo: "/images/logo-iracambi.png",
+      url: "https://iracambi.com",
+    },
   ],
   support: [
-    { name: "Prefeitura de Rosário da Limeira", logo: null },
-    { name: "Natureza Viva", logo: null },
-    { name: "Verde Esporte", logo: null },
+    { name: "Seu apoio aqui", logo: null },
+    { name: "Seu apoio aqui", logo: null },
+    { name: "Seu apoio aqui", logo: null },
   ],
   partners: [
-    { name: "Trilha Ativa", logo: null },
-    { name: "BioMatas", logo: null },
-    { name: "EcoRun MG", logo: null },
-    { name: "Rádio Muriaé", logo: null },
+    { name: "Seu apoio aqui", logo: null },
+    { name: "Seu apoio aqui", logo: null },
+    { name: "Seu apoio aqui", logo: null },
+    { name: "Seu apoio aqui", logo: null },
   ],
 };
 
 export const faqItems = [
   {
     question: "Quando as inscrições abrem?",
-    answer: "As inscrições para a 2ª edição do Iracambi Trail Running ainda não têm data confirmada. Acompanhe nossas redes sociais e cadastre seu e-mail para ser avisado em primeira mão.",
+    answer: "As inscrições para a 2ª edição do Iracambi Trail Run ainda não têm data confirmada. Acompanhe nossas redes sociais e cadastre seu e-mail para ser avisado em primeira mão.",
   },
   {
     question: "Qual a distância do percurso?",
@@ -186,7 +190,7 @@ export const faqItems = [
   },
   {
     question: "A corrida é para qualquer nível?",
-    answer: "O percurso apresenta subidas, descidas e travessias típicas de trail running. Recomendamos que os participantes tenham experiência mínima em corridas e boa condição física, embora não seja uma prova de elite.",
+    answer: "O percurso apresenta subidas, descidas e travessias típicas de trail run. Recomendamos que os participantes tenham experiência mínima em corridas e boa condição física, embora não seja uma prova de elite.",
   },
   {
     question: "O que está incluso na inscrição?",

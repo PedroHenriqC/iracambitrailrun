@@ -43,12 +43,12 @@ const Sponsors = () => {
             />
 
             <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-trail-gold">
-              Patrocinadores & Parceiros
+              Patrocinadores É Parceiros
             </span>
           </div>
 
           <SectionTitle
-            label="Patrocinadores & Parceiros"
+           
             title={
               <>
                 Quem torna
@@ -56,7 +56,7 @@ const Sponsors = () => {
                 isso <em className="not-italic gradient-text">possível</em>
               </>
             }
-            subtitle="O Iracambi Trail Running existe graças ao apoio de organizações que acreditam na união entre esporte, comunidade e meio ambiente."
+            subtitle="O Iracambi Trail Run existe graças ao apoio de organizações que acreditam na união entre esporte, comunidade e meio ambiente."
             align="center"
           />
         </motion.div>

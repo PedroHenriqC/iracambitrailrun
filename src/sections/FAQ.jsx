@@ -45,7 +45,7 @@ const FAQ = () => {
           </div>
 
           <SectionTitle
-            label="Perguntas Frequentes"
+          
             title={
               <>
                 Dúvidas?

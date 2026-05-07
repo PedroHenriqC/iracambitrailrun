@@ -73,7 +73,7 @@ const Impact = () => {
             label="Impacto Ambiental"
             title={
               <>
-                Cada corrida
+                Cada inscrição
                 <br />
                 fortalece uma{" "}
                 <em className="not-italic gradient-text">floresta</em>
@@ -110,16 +110,16 @@ const Impact = () => {
                 </div>
 
                 <p className="font-body text-sm leading-relaxed text-cream-muted md:text-base">
-                  plantadas após a 1ª edição do Iracambi Trail Running em 2025.
-                  Em 2026, a proposta é ampliar esse impacto junto à comunidade.
+                  plantadas após a 1ª edição do Iracambi Trail Run em 2025. Em
+                  2026, a proposta é ampliar esse impacto junto à comunidade.
                 </p>
               </div>
             </div>
 
             <p className="font-body text-sm leading-relaxed text-cream-muted md:text-base">
               A ONG Iracambi atua na restauração da Mata Atlântica, conectando
-              pesquisa científica, voluntariado e comunidade local para regenerar
-              um dos biomas mais ameaçados do planeta.
+              pesquisa científica, voluntariado e comunidade local para
+              regenerar um dos biomas mais ameaçados do planeta.
             </p>
           </motion.div>
         </div>

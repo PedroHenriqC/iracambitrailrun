@@ -121,6 +121,7 @@ const RaceInfo = () => {
           >
             {/* Photo */}
             {/* Video 2025 */}
+            {/* Video 2025 */}
             <div className="relative h-[340px] overflow-hidden rounded-[2rem] border border-white/10 bg-forest-950 shadow-soft sm:h-[420px] lg:h-[520px]">
               <video
                 className="h-full w-full object-cover object-[center_38%] transition-transform duration-700 hover:scale-[1.02]"
@@ -130,7 +131,7 @@ const RaceInfo = () => {
                 playsInline
                 preload="metadata"
                 poster="/images/mata-atlantica.jpg"
-                aria-label="Vídeo da edição de 2025 do Iracambi Trail Running"
+                aria-label="Vídeo da edição de 2025 do Iracambi Trail Run"
               >
                 <source src="/videos/iracambi-run-2025.mp4" type="video/mp4" />
               </video>

@@ -24,13 +24,24 @@ const SponsorCard = ({ sponsor, size = "normal" }) => {
     <>
       <div className="relative z-10 flex w-full items-center justify-center">
         {sponsor.logo ? (
-          <img
-            src={sponsor.logo}
-            alt={`Logo ${sponsor.name}`}
-            className="max-h-14 max-w-full object-contain opacity-80 transition-all duration-300 group-hover:opacity-100"
-            style={{ filter: "brightness(0.9) contrast(0.95)" }}
-            loading="lazy"
-          />
+          <div
+            className={`relative z-10 grid place-items-center ${
+              size === "master"
+                ? "h-24 w-24 rounded-3xl border border-trail-gold/20 bg-cream/95 shadow-gold md:h-28 md:w-28"
+                : "h-full w-full"
+            }`}
+          >
+            <img
+              src={sponsor.logo}
+              alt={`Logo ${sponsor.name}`}
+              className={`object-contain transition-all duration-300 group-hover:scale-105 ${
+                size === "master"
+                  ? "h-20 w-20 md:h-24 md:w-24"
+                  : "max-h-14 max-w-full opacity-80 group-hover:opacity-100"
+              }`}
+              loading="lazy"
+            />
+          </div>
         ) : (
           <span
             className={`font-mono uppercase tracking-widest text-cream-subtle transition-colors duration-300 group-hover:text-cream-muted ${textSizeClasses[size]}`}

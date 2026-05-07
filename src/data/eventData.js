@@ -13,7 +13,7 @@ export const eventInfo = {
   type: "Trail Run",
   inscriptionsOpen: false,
   // Target date for countdown — update when confirmed
-  eventDate: new Date("2026-10-05T08:00:00"),
+  eventDate: new Date(2026, 6, 5, 8, 0, 0),
   organizerName: "ONG Iracambi",
   organizerUrl: "https://iracambi.com",
   quote: "a corrida mais charmosa da região",
@@ -66,7 +66,8 @@ export const timeline = [
     year: "2025",
     title: "1ª Trail Run",
     subtitle: "O Marco Inicial",
-    description: "Com mais de 80 atletas, a primeira edição da corrida de trilha entrou para a história como um evento único na região — emocionante, desafiador e inesquecível.",
+    description:
+      "Com mais de 80 atletas, a primeira edição da corrida de trilha entrou para a história como um evento único na região — emocionante, desafiador e inesquecível.",
     highlight: true,
     tag: "Histórico",
   },
@@ -74,18 +75,20 @@ export const timeline = [
     year: "2026",
     title: "Mountain Bike",
     subtitle: "Novidade",
-    description: "Em 2026 o evento ganha uma nova modalidade: pela primeira vez, uma edição de Mountain Bike será realizada nas trilhas da reserva Iracambi, ampliando o alcance do evento e conectando ainda mais pessoas à natureza.",
+    description:
+      "Em 2026 o evento ganha uma nova modalidade: pela primeira vez, uma edição de Mountain Bike será realizada nas trilhas da reserva Iracambi, ampliando o alcance do evento e conectando ainda mais pessoas à natureza.",
     highlight: false,
     tag: "Novidade",
   },
   {
     year: "2026",
     title: "2ª Trail Run",
-    subtitle: "Em Breve",
-    description: "A segunda edição da corrida de trilha promete superar tudo que foi feito. Mais atletas, mais impacto ambiental, mais uma história para contar nas trilhas da Mata Atlântica.",
-    highlight: false,
-    tag: "Em Breve",
+    subtitle: "05 de julho",
+    description:
+      "A segunda edição da corrida de trilha acontece em 05 de julho de 2026, prometendo superar tudo que foi feito. Mais atletas, mais impacto ambiental, mais uma história para contar nas trilhas da Mata Atlântica.",
+    tag: "Data oficial",
     upcoming: true,
+    highlight: true,
   },
 ];
 

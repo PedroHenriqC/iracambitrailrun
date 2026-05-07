@@ -51,7 +51,7 @@ const getRemainingTime = (eventDate) => {
 
 const CountdownUnit = ({ value, label, index }) => (
   <motion.div
-    className="flex min-w-0 flex-col items-center"
+    className="mx-auto flex w-[4.7rem] flex-col items-center justify-start sm:w-24 md:w-28 lg:w-32"
     initial={{ opacity: 0, y: 22 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true, amount: 0.45 }}
@@ -61,15 +61,16 @@ const CountdownUnit = ({ value, label, index }) => (
       ease: "easeOut",
     }}
   >
-    <div className="relative w-full">
-      <div className="glass-card grid aspect-square w-[4.7rem] place-items-center rounded-2xl sm:w-24 md:w-28 lg:w-32">
-        <span className="font-display text-[clamp(2rem,8vw,4.25rem)] font-bold leading-none tracking-[-0.08em] gradient-text">
-          {label === "Dias" ? value : formatNumber(value)}
-        </span>
-      </div>
+    <div className="glass-card grid aspect-square w-full place-items-center rounded-2xl">
+      <span className="font-display text-[clamp(2rem,8vw,4.25rem)] font-bold leading-none tracking-[-0.08em] gradient-text">
+        {label === "Dias" ? value : formatNumber(value)}
+      </span>
     </div>
 
-    <span className="section-label mt-3 text-center text-[9px] sm:text-[10px]">
+    <span
+      className="section-label mt-4 block w-full text-center text-[9px] sm:text-[10px]"
+      style={{ letterSpacing: "0.3em", paddingLeft: "0.3em" }}
+    >
       {label}
     </span>
   </motion.div>
@@ -165,10 +166,14 @@ const Countdown = () => {
         </div>
 
         <div className="mx-auto mt-10 flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-cream-muted">
-          <CalendarDays size={15} className="text-trail-gold" aria-hidden="true" />
+          <CalendarDays
+            size={15}
+            className="text-trail-gold"
+            aria-hidden="true"
+          />
 
           <p className="font-body text-xs leading-relaxed sm:text-sm">
-            Data estimada — confirme nos canais oficiais da Iracambi.
+            Data oficial: 05 de julho de 2026.
           </p>
         </div>
       </motion.div>

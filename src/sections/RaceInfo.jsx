@@ -102,7 +102,11 @@ const RaceInfo = () => {
 
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
               {raceInfo.map((info, index) => (
-                <InfoCard key={`${info.label}-${info.value}`} info={info} index={index} />
+                <InfoCard
+                  key={`${info.label}-${info.value}`}
+                  info={info}
+                  index={index}
+                />
               ))}
             </div>
           </div>
@@ -116,31 +120,38 @@ const RaceInfo = () => {
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
             {/* Photo */}
-            <div className="relative h-[320px] overflow-hidden rounded-[2rem] border border-white/10 shadow-soft sm:h-[380px] lg:h-[420px]">
-              <img
-                src="https://sp-ao.shortpixel.ai/client/to_auto,q_glossy,ret_img,w_750/https://radiomuriae.com.br/portal/wp-content/uploads/2025/10/9.jpg"
-                alt="Participantes do Iracambi Trail Running"
-                className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
-                loading="lazy"
-              />
+            {/* Video 2025 */}
+            <div className="relative h-[340px] overflow-hidden rounded-[2rem] border border-white/10 bg-forest-950 shadow-soft sm:h-[420px] lg:h-[520px]">
+              <video
+                className="h-full w-full object-cover object-[center_38%] transition-transform duration-700 hover:scale-[1.02]"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                poster="/images/mata-atlantica.jpg"
+                aria-label="Vídeo da edição de 2025 do Iracambi Trail Running"
+              >
+                <source src="/videos/iracambi-run-2025.mp4" type="video/mp4" />
+              </video>
 
               <div
-                className="absolute inset-0"
+                className="pointer-events-none absolute inset-0"
                 style={{
                   background:
-                    "linear-gradient(180deg, rgba(5,13,7,0.08) 0%, rgba(5,13,7,0.2) 42%, rgba(5,13,7,0.86) 100%)",
+                    "linear-gradient(180deg, rgba(5,13,7,0.04) 0%, rgba(5,13,7,0.16) 42%, rgba(5,13,7,0.82) 100%)",
                 }}
               />
 
-              <div className="noise-overlay absolute inset-0 opacity-40" />
+              <div className="noise-overlay pointer-events-none absolute inset-0 opacity-25" />
 
-              <div className="absolute bottom-5 left-5 right-5 rounded-2xl border border-white/10 bg-black/25 p-4 backdrop-blur-xl">
+              <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur-xl sm:bottom-5 sm:left-5 sm:right-5">
                 <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-trail-gold">
-                  Trail running
+                  Edição 2025
                 </p>
 
-                <p className="mt-2 font-display text-xl font-semibold leading-tight text-cream">
-                  Uma prova entre trilhas reais, natureza e comunidade.
+                <p className="mt-2 font-display text-lg font-semibold leading-tight text-cream sm:text-xl">
+                  A energia da primeira edição nas trilhas da Mata Atlântica.
                 </p>
               </div>
             </div>

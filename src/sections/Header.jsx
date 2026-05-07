@@ -59,24 +59,31 @@ const Header = () => {
         {/* Logo */}
         <a
           href="#"
-          className="group flex items-center gap-3 rounded-full pr-3 transition-transform duration-300 hover:-translate-y-0.5"
+          className="group flex items-center gap-4 rounded-full pr-3 transition-transform duration-300 hover:-translate-y-0.5"
           aria-label="Voltar ao início"
         >
-          <span className="grid h-10 w-10 place-items-center rounded-2xl border border-white/10 bg-white/[0.065] backdrop-blur-md transition-all duration-300 group-hover:border-trail-gold/30 group-hover:bg-trail-gold/10">
+          <span className="relative grid h-12 w-12 place-items-center rounded-2xl border border-trail-gold/25 bg-cream/90 shadow-gold backdrop-blur-md transition-all duration-300 group-hover:border-trail-gold/50 group-hover:bg-cream md:h-14 md:w-14">
+            <span
+              className="pointer-events-none absolute inset-0 rounded-2xl"
+              style={{
+                background:
+                  "radial-gradient(circle at 35% 20%, rgba(46,204,113,0.22), transparent 58%)",
+              }}
+            />
+
             <img
               src="/images/logo-iracambi.png"
               alt="Logo da Iracambi"
-              className="h-8 w-8 object-contain transition-all duration-300 group-hover:brightness-110"
-              style={{ filter: "brightness(0.92)" }}
+              className="relative z-10 h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-105 md:h-12 md:w-12"
             />
           </span>
 
           <span>
-            <span className="block font-display text-lg font-semibold leading-none text-cream">
+            <span className="block font-display text-xl font-bold leading-none tracking-[-0.04em] text-cream md:text-2xl">
               Iracambi
             </span>
 
-            <span className="mt-1 block font-mono text-[9px] uppercase leading-none tracking-[0.25em] text-trail-gold">
+            <span className="mt-1 block font-mono text-[9px] uppercase leading-none tracking-[0.32em] text-trail-gold md:text-[10px]">
               Trail Run
             </span>
           </span>
@@ -101,7 +108,11 @@ const Header = () => {
 
         {/* CTA */}
         <div className="hidden lg:block">
-          <Button variant="outline" href="#inscricao" className="px-6 py-3 text-xs">
+          <Button
+            variant="outline"
+            href="#inscricao"
+            className="px-6 py-3 text-xs"
+          >
             Inscrições em Breve
           </Button>
         </div>

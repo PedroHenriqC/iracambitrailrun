@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 import SectionTitle from "../components/SectionTitle";
 import FAQItem from "../components/FAQItem";
-import { faqItems } from "../data/eventData";
+import { faqItems, officialContact } from "../data/eventData";
 
 const FAQ = () => {
   return (
@@ -89,14 +89,14 @@ const FAQ = () => {
                 Não encontrou o que procurava?
               </p>
 
-              <a
-                href="mailto:contato@iracambi.com"
-                className="inline-flex items-center justify-center gap-2 rounded-full border border-trail-gold/25 bg-trail-gold/10 px-5 py-3 font-display text-base font-semibold text-trail-gold transition-all duration-300 hover:-translate-y-0.5 hover:border-trail-gold hover:bg-trail-gold hover:text-forest-950 md:text-lg"
-                aria-label="Enviar e-mail para contato da Iracambi"
-              >
-                <Mail size={17} strokeWidth={2.4} aria-hidden="true" />
-                contato@iracambi.com
-              </a>
+                  <a
+                    href={`mailto:${officialContact.email}`}
+                    className="inline-flex items-center justify-center gap-2 rounded-full border border-trail-gold/25 bg-trail-gold/10 px-5 py-3 font-display text-base font-semibold text-trail-gold transition-all duration-300 hover:-translate-y-0.5 hover:border-trail-gold hover:bg-trail-gold hover:text-forest-950 md:text-lg"
+                    aria-label="Enviar e-mail para contato da Iracambi"
+                  >
+                    <Mail size={17} strokeWidth={2.4} aria-hidden="true" />
+                    {officialContact.email}
+                  </a>
             </div>
           </motion.div>
         </motion.div>

@@ -2,6 +2,12 @@
 // EVENT DATA — edit here to update all sections
 // ============================================================
 
+
+export const officialContact = {
+  email: "relacionamento@iracambi.com",
+  whatsappNumber: "5532998702917",
+};
+
 export const eventInfo = {
   name: "Iracambi Trail Run",
   shortName: "ITR",
@@ -92,59 +98,191 @@ export const timeline = [
   },
 ];
 
+
+export const galleryCategories = [
+  { id: "todos", label: "Todos" },
+  { id: "trilhas", label: "As Trilhas da Mata Atlântica" },
+  { id: "amanhecer", label: "Amanhecer na Mata Atlântica" },
+  { id: "parceiros", label: "Parceiros e Apoiadores" },
+  { id: "atletas", label: " Atletas na Trilha" },
+  { id: "voluntarios", label: "Voluntários" },
+  { id: "equipe", label: "Equipe Iracambi" },
+  { id: "premiacao", label: "Premiação" },
+];
+
 export const gallery = [
+  // Trilhas da Mata Atlântica
   {
-    src: "https://silvanalves.com.br/site/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-05-at-16.21.20_640x480.jpg",
-    alt: "Atletas em ação",
-    caption: "Atletas nas trilhas — 1ª Edição",
+    src: "/images/gallery/trilhas-01.jpeg",
+    alt: "Trilhas da Mata Atlântica",
+    caption: "Trilhas da Mata Atlântica",
+    category: "trilhas",
     size: "large",
   },
   {
-    src: "/images/floresta-amanhecer.jpg",
-    alt: "Amanhecer na floresta da reserva",
+    src: "/images/gallery/trilhas-02.jpeg",
+    alt: "Percurso em meio à Mata Atlântica",
+    caption: "Percurso em meio à natureza",
+    category: "trilhas",
+    size: "normal",
+  },
+  {
+    src: "/images/gallery/trilhas-03.jpeg",
+    alt: "Trilha dentro da reserva Iracambi",
+    caption: "Dentro da reserva Iracambi",
+    category: "trilhas",
+    size: "normal",
+  },
+  {
+    src: "/images/gallery/trilhas-04.jpeg",
+    alt: "Caminho da trilha na Mata Atlântica",
+    caption: "Caminhos da Mata Atlântica",
+    category: "trilhas",
+    size: "normal",
+  },
+  {
+    src: "/images/gallery/trilhas-05.jpeg",
+    alt: "Paisagem das trilhas da Iracambi",
+    caption: "Natureza preservada",
+    category: "trilhas",
+    size: "normal",
+  },
+
+  // Amanhecer
+  {
+    src: "/images/gallery/amanhecer-01.jpeg",
+    alt: "Amanhecer na Mata Atlântica",
     caption: "Amanhecer na Mata Atlântica",
+    category: "amanhecer",
+    size: "large",
+  },
+
+  // Parceiros e apoiadores
+  {
+    src: "/images/gallery/parceiros-01.jpeg",
+    alt: "Parceiros e apoiadores do evento",
+    caption: "Parceiros e apoiadores",
+    category: "parceiros",
     size: "normal",
   },
   {
-    src: "https://silvanalves.com.br/site/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-05-at-16.21.36-2_640x480.jpg",
-    alt: "Corrida nas trilhas",
-    caption: "A trilha da Mata Atlântica",
+    src: "/images/gallery/parceiros-02.jpeg",
+    alt: "Apoiadores da primeira edição",
+    caption: "Apoio à primeira edição",
+    category: "parceiros",
     size: "normal",
   },
   {
-    src: "https://silvanalves.com.br/site/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-05-at-16.21.23-2_640x480.jpg",
-    alt: "Premiação",
-    caption: "Premiação — Troféus e Amor",
+    src: "/images/gallery/parceiros-03.jpeg",
+    alt: "Marcas e pessoas apoiadoras do evento",
+    caption: "Quem fortalece o evento",
+    category: "parceiros",
     size: "normal",
   },
   {
-    src: "https://silvanalves.com.br/site/wp-content/uploads/2025/10/B7-Foto-11-640x1024.jpg",
-    alt: "Atleta",
-    caption: "Força e determinação",
+    src: "/images/gallery/parceiros-04.jpeg",
+    alt: "Apoiadores do Iracambi Trail Run",
+    caption: "Rede de apoio",
+    category: "parceiros",
+    size: "normal",
+  },
+  {
+    src: "/images/gallery/parceiros-05.jpeg",
+    alt: "Parceiros reunidos no evento",
+    caption: "Parcerias que fazem acontecer",
+    category: "parceiros",
+    size: "normal",
+  },
+
+  // Atletas da trilha
+  {
+    src: "/images/gallery/atletas-01.jpeg",
+    alt: "Atletas correndo na trilha",
+    caption: "Atletas na trilha",
+    category: "atletas",
     size: "tall",
   },
   {
-    src: "https://silvanalves.com.br/site/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-05-at-16.21.19-2_640x480.jpg",
-    alt: "Parceiros",
-    caption: "Parceiros e apoiadores",
+    src: "/images/gallery/atletas-02.jpeg",
+    alt: "Atletas no percurso da prova",
+    caption: "Percurso da prova",
+    category: "atletas",
     size: "normal",
   },
   {
-    src: "https://silvanalves.com.br/site/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-05-at-16.29.56-4_640x480.jpg",
-    alt: "Voluntários",
+    src: "/images/gallery/atletas-03.jpeg",
+    alt: "Atletas durante o Iracambi Trail Run",
+    caption: "Energia da corrida",
+    category: "atletas",
+    size: "normal",
+  },
+  {
+    src: "/images/gallery/atletas-04.jpeg",
+    alt: "Participantes correndo na Mata Atlântica",
+    caption: "Participantes na Mata Atlântica",
+    category: "atletas",
+    size: "normal",
+  },
+  {
+    src: "/images/gallery/atletas-05.jpeg",
+    alt: "Atleta cruzando a trilha",
+    caption: "Força e determinação",
+    category: "atletas",
+    size: "normal",
+  },
+  {
+    src: "/images/gallery/atletas-06.jpeg",
+    alt: "Atletas vivendo a experiência da trilha",
+    caption: "Experiência na floresta",
+    category: "atletas",
+    size: "normal",
+  },
+
+  // Voluntários
+  {
+    src: "/images/gallery/voluntarios-01.jpeg",
+    alt: "Voluntários do evento",
     caption: "Time de voluntários",
+    category: "voluntarios",
     size: "normal",
   },
   {
-    src: "https://silvanalves.com.br/site/wp-content/uploads/2025/10/WhatsApp-Image-2025-10-05-at-16.21.44-1_640x480.jpg",
-    alt: "Equipe",
+    src: "/images/gallery/voluntarios-02.jpeg",
+    alt: "Voluntários apoiando a corrida",
+    caption: "Apoio durante o evento",
+    category: "voluntarios",
+    size: "normal",
+  },
+  {
+    src: "/images/gallery/voluntarios-03.jpeg",
+    alt: "Voluntários da primeira edição",
+    caption: "Voluntários da 1ª edição",
+    category: "voluntarios",
+    size: "normal",
+  },
+
+  // Equipe Iracambi
+  {
+    src: "/images/gallery/equipe-01.jpeg",
+    alt: "Equipe Iracambi",
     caption: "Equipe Iracambi",
+    category: "equipe",
     size: "normal",
   },
+
+  // Premiação
   {
-    src: "/images/viveiro-mudas.jpg",
-    alt: "Viveiro de mudas nativas",
-    caption: "Viveiro de mudas nativas",
+    src: "/images/gallery/premiacao-01.jpeg",
+    alt: "Troféus e medalhas do Iracambi Trail Run",
+    caption: "Troféus e medalhas",
+    category: "premiacao",
+    size: "large",
+  },
+  {
+    src: "/images/gallery/premiacao-02.jpeg",
+    alt: "Premiação da primeira edição",
+    caption: "Premiação da 1ª edição",
+    category: "premiacao",
     size: "normal",
   },
 ];
@@ -217,5 +355,13 @@ export const faqItems = [
 export const socialLinks = [
   { name: "Instagram", handle: "@iracambi", url: "https://instagram.com/iracambi" },
   { name: "Facebook", handle: "Iracambi", url: "https://facebook.com/iracambi" },
-  { name: "WhatsApp", handle: "Contato", url: "https://wa.me/5500000000000" },
+  {
+
+    name: "WhatsApp",
+
+    handle: "Contato oficial",
+
+    url: `https://wa.me/${officialContact.whatsappNumber}`,
+
+  },
 ];

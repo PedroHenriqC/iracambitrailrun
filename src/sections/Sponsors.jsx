@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 import SectionTitle from "../components/SectionTitle";
 import SponsorCard from "../components/SponsorCard";
-import { sponsors } from "../data/eventData";
+import { sponsors, officialContact } from "../data/eventData";
 
 const Sponsors = () => {
   return (
@@ -149,14 +149,13 @@ const Sponsors = () => {
               comunidade e impacto ambiental na Mata Atlântica.
             </p>
 
-            <a
-              href="mailto:contato@iracambi.com"
-              className="btn-outline inline-flex px-6 py-3 text-xs"
-              aria-label="Enviar e-mail para contato da Iracambi"
-            >
-              <Mail size={15} strokeWidth={2.4} aria-hidden="true" />
-              Fale conosco
-            </a>
+          <a
+            href={`mailto:${officialContact.email}`}
+            className="btn-outline inline-flex px-6 py-3 text-xs"
+            aria-label="Enviar e-mail para contato da Iracambi">
+            <Mail size={15} strokeWidth={2.4} aria-hidden="true" />
+            Fale conosco
+          </a>          
           </div>
         </motion.div>
       </div>

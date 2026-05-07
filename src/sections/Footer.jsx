@@ -8,7 +8,13 @@ import {
   Sparkles,
 } from "lucide-react";
 
-const BLUENIX_INSTAGRAM_URL = "https://www.instagram.com/bluenix.tech/?utm_source=ig_web_button_share_sheet";
+import { officialContact } from "../data/eventData";
+
+import { FaWhatsapp } from "react-icons/fa";
+
+const BLUENIX_INSTAGRAM_URL = "https://www.instagram.com/bluenix.tech/";
+
+const IRACAMBI_WHATSAPP_URL = `https://wa.me/${officialContact.whatsappNumber}`;
 
 const socialLinks = [
   {
@@ -21,6 +27,12 @@ const socialLinks = [
     href: "https://facebook.com/iracambi",
     label: "Facebook da Iracambi",
   },
+
+ {
+  Icon: FaWhatsapp,
+  href: IRACAMBI_WHATSAPP_URL,
+  label: "WhatsApp oficial da Iracambi",
+},
 ];
 
 const navLinks = [
@@ -89,7 +101,7 @@ const Footer = () => {
                   aria-label={label}
                   className="grid h-11 w-11 place-items-center rounded-full border border-white/10 bg-white/[0.045] text-cream-muted transition-all duration-300 hover:-translate-y-1 hover:border-trail-gold/45 hover:bg-trail-gold/10 hover:text-trail-gold"
                 >
-                  <Icon size={17} strokeWidth={2.3} aria-hidden="true" />
+                  <Icon size={17} aria-hidden="true" />
                 </a>
               ))}
             </div>
@@ -122,14 +134,13 @@ const Footer = () => {
 
             <div className="space-y-4">
               <a
-                href="mailto:contato@iracambi.com"
-                className="group flex items-center gap-3 text-cream-muted transition-colors hover:text-cream"
-              >
-                <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full border border-trail-gold/20 bg-trail-gold/10 text-trail-gold">
+                    href={`mailto:${officialContact.email}`}
+                    className="group flex items-center gap-3 text-cream-muted transition-colors hover:text-cream">
+                    <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full border border-trail-gold/20 bg-trail-gold/10 text-trail-gold">
                   <Mail size={14} strokeWidth={2.4} aria-hidden="true" />
                 </span>
 
-                <span className="font-body text-sm">contato@iracambi.com</span>
+                <span className="font-body text-sm">{officialContact.email}</span>
               </a>
 
               <div className="flex items-start gap-3 text-cream-muted">

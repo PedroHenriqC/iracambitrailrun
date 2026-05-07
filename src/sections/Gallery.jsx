@@ -4,7 +4,7 @@ import { motion } from "motion/react";
 
 import SectionTitle from "../components/SectionTitle";
 import GalleryGrid from "../components/GalleryGrid";
-import { gallery } from "../data/eventData";
+import { gallery, galleryCategories } from "../data/eventData";
 
 const Gallery = () => {
   return (
@@ -58,14 +58,9 @@ const Gallery = () => {
           />
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 38 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.18 }}
-          transition={{ duration: 0.75, delay: 0.1, ease: "easeOut" }}
-        >
-          <GalleryGrid items={gallery} />
-        </motion.div>
+        <div>
+  <GalleryGrid items={gallery} categories={galleryCategories} />
+</div>
       </div>
     </section>
   );

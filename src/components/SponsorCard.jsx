@@ -1,30 +1,81 @@
-import React from 'react';
+import React from "react";
+import { ArrowUpRight } from "lucide-react";
+import { motion } from "motion/react";
 
-const SponsorCard = ({ sponsor, size = 'normal' }) => {
-  const sizeClasses = {
-    master: 'h-20 px-10 py-6',
-    normal: 'h-14 px-6 py-4',
-    small: 'h-10 px-4 py-2',
-  };
+const sizeClasses = {
+  master: "min-h-24 px-8 py-6 md:min-h-28 md:px-10",
+  normal: "min-h-20 px-5 py-5",
+  small: "min-h-16 px-4 py-4",
+};
 
-  return (
-    <div
-      className={`glass-card flex items-center justify-center ${sizeClasses[size]} transition-all duration-300 hover:border-trail-gold/30 cursor-pointer group`}
-      style={{ borderRadius: '4px' }}
-    >
-      {sponsor.logo ? (
-        <img
-          src={sponsor.logo}
-          alt={sponsor.name}
-          className="max-h-full max-w-full object-contain filter brightness-75 group-hover:brightness-100 transition-all duration-300"
-          style={{ filter: 'brightness(0.8) contrast(0.9)' }}
-        />
-      ) : (
-        <span className="font-mono text-xs md:text-sm tracking-widest uppercase text-cream-subtle group-hover:text-cream-muted transition-colors duration-300">
-          {sponsor.name}
+const textSizeClasses = {
+  master: "text-sm md:text-base",
+  normal: "text-xs md:text-sm",
+  small: "text-[10px] md:text-xs",
+};
+
+const isExternalUrl = (url) => /^https?:\/\//i.test(url || "");
+
+const SponsorCard = ({ sponsor, size = "normal" }) => {
+  const hasUrl = Boolean(sponsor.url);
+  const external = isExternalUrl(sponsor.url);
+
+  const content = (
+    <>
+      <div className="relative z-10 flex w-full items-center justify-center">
+        {sponsor.logo ? (
+          <img
+            src={sponsor.logo}
+            alt={`Logo ${sponsor.name}`}
+            className="max-h-14 max-w-full object-contain opacity-80 transition-all duration-300 group-hover:opacity-100"
+            style={{ filter: "brightness(0.9) contrast(0.95)" }}
+            loading="lazy"
+          />
+        ) : (
+          <span
+            className={`font-mono uppercase tracking-widest text-cream-subtle transition-colors duration-300 group-hover:text-cream-muted ${textSizeClasses[size]}`}
+          >
+            {sponsor.name}
+          </span>
+        )}
+      </div>
+
+      {hasUrl && (
+        <span className="absolute right-3 top-3 grid h-7 w-7 place-items-center rounded-full border border-trail-gold/20 bg-trail-gold/10 text-trail-gold opacity-0 transition-all duration-300 group-hover:opacity-100">
+          <ArrowUpRight size={13} strokeWidth={2.4} aria-hidden="true" />
         </span>
       )}
-    </div>
+    </>
+  );
+
+  const className = `glass-card group relative flex items-center justify-center overflow-hidden rounded-2xl transition-all duration-300 hover:border-trail-gold/30 ${sizeClasses[size]}`;
+
+  if (hasUrl) {
+    return (
+      <motion.a
+        href={sponsor.url}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
+        className={className}
+        whileHover={{ y: -4 }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ duration: 0.22, ease: "easeOut" }}
+        aria-label={`Abrir patrocinador ${sponsor.name}`}
+      >
+        {content}
+      </motion.a>
+    );
+  }
+
+  return (
+    <motion.div
+      className={className}
+      whileHover={{ y: -4 }}
+      transition={{ duration: 0.22, ease: "easeOut" }}
+      aria-label={sponsor.name}
+    >
+      {content}
+    </motion.div>
   );
 };
 

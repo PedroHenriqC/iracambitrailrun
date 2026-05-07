@@ -1,81 +1,179 @@
-import React, { useState, useEffect } from 'react';
-import { eventInfo } from '../data/eventData';
+import React, { useEffect, useMemo, useState } from "react";
+import { CalendarDays, Clock3 } from "lucide-react";
+import { motion } from "motion/react";
 
-const CountdownUnit = ({ value, label }) => (
-  <div className="flex flex-col items-center">
-    <div className="relative">
-      <div
-        className="w-20 h-20 md:w-28 md:h-28 flex items-center justify-center glass-card"
-        style={{ borderRadius: '4px' }}
-      >
-        <span className="font-display text-4xl md:text-5xl font-700 gradient-text">
-          {String(value).padStart(2, '0')}
+import { eventInfo } from "../data/eventData";
+
+const SECOND = 1000;
+const MINUTE = SECOND * 60;
+const HOUR = MINUTE * 60;
+const DAY = HOUR * 24;
+
+const formatNumber = (value) => String(value).padStart(2, "0");
+
+const getRemainingTime = (eventDate) => {
+  const target =
+    eventDate instanceof Date ? eventDate.getTime() : new Date(eventDate).getTime();
+
+  if (Number.isNaN(target)) {
+    return {
+      isValid: false,
+      isFinished: false,
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+    };
+  }
+
+  const diff = target - Date.now();
+
+  if (diff <= 0) {
+    return {
+      isValid: true,
+      isFinished: true,
+      days: 0,
+      hours: 0,
+      minutes: 0,
+      seconds: 0,
+    };
+  }
+
+  return {
+    isValid: true,
+    isFinished: false,
+    days: Math.floor(diff / DAY),
+    hours: Math.floor((diff % DAY) / HOUR),
+    minutes: Math.floor((diff % HOUR) / MINUTE),
+    seconds: Math.floor((diff % MINUTE) / SECOND),
+  };
+};
+
+const CountdownUnit = ({ value, label, index }) => (
+  <motion.div
+    className="flex min-w-0 flex-col items-center"
+    initial={{ opacity: 0, y: 22 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true, amount: 0.45 }}
+    transition={{
+      duration: 0.55,
+      delay: index * 0.06,
+      ease: "easeOut",
+    }}
+  >
+    <div className="relative w-full">
+      <div className="glass-card grid aspect-square w-[4.7rem] place-items-center rounded-2xl sm:w-24 md:w-28 lg:w-32">
+        <span className="font-display text-[clamp(2rem,8vw,4.25rem)] font-bold leading-none tracking-[-0.08em] gradient-text">
+          {label === "Dias" ? value : formatNumber(value)}
         </span>
       </div>
     </div>
-    <span className="section-label mt-3 text-[10px]">{label}</span>
-  </div>
-);
 
-const Separator = () => (
-  <div className="flex flex-col items-center justify-center pb-6">
-    <span className="text-trail-gold text-3xl font-display leading-none">:</span>
-  </div>
+    <span className="section-label mt-3 text-center text-[9px] sm:text-[10px]">
+      {label}
+    </span>
+  </motion.div>
 );
 
 const Countdown = () => {
-  const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-  const [mounted, setMounted] = useState(false);
+  const [timeLeft, setTimeLeft] = useState(() =>
+    getRemainingTime(eventInfo.eventDate)
+  );
 
   useEffect(() => {
-    setMounted(true);
-    const calculate = () => {
-      const now = new Date().getTime();
-      const target = eventInfo.eventDate.getTime();
-      const diff = target - now;
+    setTimeLeft(getRemainingTime(eventInfo.eventDate));
 
-      if (diff <= 0) {
-        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
-        return;
-      }
+    const intervalId = window.setInterval(() => {
+      setTimeLeft(getRemainingTime(eventInfo.eventDate));
+    }, SECOND);
 
-      setTimeLeft({
-        days: Math.floor(diff / (1000 * 60 * 60 * 24)),
-        hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-        minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
-        seconds: Math.floor((diff % (1000 * 60)) / 1000),
-      });
+    return () => {
+      window.clearInterval(intervalId);
     };
-
-    calculate();
-    const interval = setInterval(calculate, 1000);
-    return () => clearInterval(interval);
   }, []);
 
-  if (!mounted) return null;
+  const items = useMemo(
+    () => [
+      { value: timeLeft.days, label: "Dias" },
+      { value: timeLeft.hours, label: "Horas" },
+      { value: timeLeft.minutes, label: "Minutos" },
+      { value: timeLeft.seconds, label: "Segundos" },
+    ],
+    [timeLeft]
+  );
+
+  const statusText = !timeLeft.isValid
+    ? "Data do evento em validação"
+    : timeLeft.isFinished
+      ? "A largada começou"
+      : "A 2ª edição está chegando";
 
   return (
-    <section className="py-16 md:py-20 px-4 relative overflow-hidden" style={{ background: 'rgba(255,255,255,0.02)' }}>
-      <div className="divider-gold mb-16" />
-      <div className="max-w-4xl mx-auto text-center">
-        <p className="section-label mb-8">Contagem Regressiva</p>
-        <p className="font-display text-2xl md:text-3xl text-cream mb-12 font-300">
-          A 2ª edição está chegando
-        </p>
-        <div className="flex items-center justify-center gap-4 md:gap-6">
-          <CountdownUnit value={timeLeft.days} label="Dias" />
-          <Separator />
-          <CountdownUnit value={timeLeft.hours} label="Horas" />
-          <Separator />
-          <CountdownUnit value={timeLeft.minutes} label="Minutos" />
-          <Separator />
-          <CountdownUnit value={timeLeft.seconds} label="Segundos" />
+    <section
+      className="relative overflow-hidden px-4 py-16 md:px-8 md:py-24 lg:px-16"
+      aria-labelledby="countdown-title"
+    >
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(circle at 50% 0%, rgba(201,168,76,0.1), transparent 32rem), linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.035), rgba(255,255,255,0.018))",
+        }}
+      />
+
+      <div className="divider-gold mb-12 md:mb-16" />
+
+      <motion.div
+        className="relative z-10 mx-auto max-w-5xl text-center"
+        initial={{ opacity: 0, y: 26 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.35 }}
+        transition={{ duration: 0.65, ease: "easeOut" }}
+      >
+        <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-trail-gold/25 bg-trail-gold/10 px-4 py-2">
+          <Clock3 size={14} className="text-trail-gold" aria-hidden="true" />
+          <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-trail-gold">
+            Contagem regressiva
+          </span>
         </div>
-        <p className="text-cream-muted font-body text-sm mt-10">
-          * Data estimada — confirme nas nossas redes sociais
+
+        <h2
+          id="countdown-title"
+          className="mx-auto mb-4 max-w-3xl font-display text-[clamp(2rem,6vw,4.8rem)] font-bold leading-[0.95] tracking-[-0.07em] text-cream"
+        >
+          {statusText}
+        </h2>
+
+        <p className="mx-auto mb-10 max-w-2xl font-body text-base leading-relaxed text-cream-muted md:text-lg">
+          Prepare-se para uma experiência entre trilhas, floresta e propósito na
+          Mata Atlântica.
         </p>
-      </div>
-      <div className="divider-gold mt-16" />
+
+        <div
+          className="mx-auto grid max-w-4xl grid-cols-4 gap-2 sm:gap-4 md:gap-6"
+          aria-label="Tempo restante para o evento"
+          aria-live="polite"
+        >
+          {items.map((item, index) => (
+            <CountdownUnit
+              key={item.label}
+              value={item.value}
+              label={item.label}
+              index={index}
+            />
+          ))}
+        </div>
+
+        <div className="mx-auto mt-10 flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-cream-muted">
+          <CalendarDays size={15} className="text-trail-gold" aria-hidden="true" />
+
+          <p className="font-body text-xs leading-relaxed sm:text-sm">
+            Data estimada — confirme nos canais oficiais da Iracambi.
+          </p>
+        </div>
+      </motion.div>
+
+      <div className="divider-gold mt-12 md:mt-16" />
     </section>
   );
 };

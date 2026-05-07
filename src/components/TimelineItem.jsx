@@ -1,70 +1,129 @@
-import React from 'react';
+import React from "react";
+import { CheckCircle2, Clock3, Sparkles } from "lucide-react";
+import { motion } from "motion/react";
+
+const getMarkerIcon = (item) => {
+  if (item.highlight) return CheckCircle2;
+  if (item.upcoming) return Clock3;
+  return Sparkles;
+};
 
 const TimelineItem = ({ item, index, isLast }) => {
   const isOdd = index % 2 !== 0;
+  const MarkerIcon = getMarkerIcon(item);
 
   return (
-    <div className={`flex items-center gap-0 ${isOdd ? 'flex-row-reverse' : ''}`}>
-      {/* Content */}
-      <div className={`flex-1 ${isOdd ? 'pl-10 md:pl-16 text-left' : 'pr-10 md:pr-16 text-right'}`}>
-        <div
-          className={`inline-block glass-card p-6 md:p-8 max-w-sm ${
-            item.highlight
-              ? 'border-trail-gold/50'
-              : 'border-white/10'
-          }`}
-          style={{
-            background: item.highlight
-              ? 'rgba(201, 168, 76, 0.06)'
-              : 'rgba(255,255,255,0.03)',
-          }}
-        >
-          {item.tag && (
-            <span
-              className="inline-block text-[10px] font-mono tracking-widest uppercase px-3 py-1 mb-4"
-              style={{
-                background: item.upcoming
-                  ? 'rgba(201, 168, 76, 0.15)'
-                  : 'rgba(45, 125, 45, 0.2)',
-                color: item.upcoming ? '#c9a84c' : '#7cba7c',
-                borderRadius: '2px',
-              }}
-            >
-              {item.tag}
-            </span>
-          )}
-          <p className="section-label text-[11px] mb-2">{item.year}</p>
-          <h3 className="font-display text-2xl md:text-3xl text-cream mb-1">{item.title}</h3>
-          <p className="text-trail-gold font-body text-sm mb-4">{item.subtitle}</p>
-          <p className="text-cream-muted font-body text-sm leading-relaxed">{item.description}</p>
-        </div>
+    <motion.article
+      className="relative grid grid-cols-[2.5rem_1fr] gap-5 py-6 md:grid-cols-[1fr_4rem_1fr] md:gap-0 md:py-8"
+      initial={{ opacity: 0, y: 34 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.28 }}
+      transition={{
+        duration: 0.65,
+        delay: index * 0.08,
+        ease: "easeOut",
+      }}
+    >
+      {/* Left / content side on desktop */}
+      <div
+        className={`hidden md:block ${
+          isOdd ? "order-3 pl-10 text-left" : "order-1 pr-10 text-right"
+        }`}
+      >
+        {!isOdd && <TimelineCard item={item} align="right" />}
       </div>
 
-      {/* Center dot */}
-      <div className="flex flex-col items-center">
+      {/* Center marker */}
+      <div className="relative order-1 flex justify-center md:order-2">
         <div
-          className={`w-4 h-4 rounded-full border-2 z-10 ${
+          className={`relative z-10 grid h-11 w-11 place-items-center rounded-full border shadow-soft ${
             item.highlight
-              ? 'bg-trail-gold border-trail-gold animate-pulse-gold'
+              ? "border-trail-gold bg-trail-gold text-forest-950"
               : item.upcoming
-              ? 'bg-forest-800 border-trail-gold/50'
-              : 'bg-forest-600 border-forest-400'
+                ? "border-trail-gold/45 bg-forest-950 text-trail-gold"
+                : "border-forest-400/45 bg-forest-950 text-forest-300"
           }`}
-        />
+        >
+          <MarkerIcon size={18} strokeWidth={2.4} aria-hidden="true" />
+        </div>
+
         {!isLast && (
           <div
-            className="w-px flex-1 mt-2"
+            className="absolute left-1/2 top-11 h-full w-px -translate-x-1/2 md:top-12"
             style={{
-              background: 'linear-gradient(to bottom, rgba(201,168,76,0.3), rgba(201,168,76,0.05))',
-              minHeight: '80px',
+              background:
+                "linear-gradient(to bottom, rgba(201,168,76,0.36), rgba(46,204,113,0.14), rgba(201,168,76,0.04))",
+              minHeight: "5rem",
             }}
+            aria-hidden="true"
           />
         )}
       </div>
 
-      {/* Empty side */}
-      <div className="flex-1" />
-    </div>
+      {/* Right / content side */}
+      <div
+        className={`order-2 md:order-3 ${
+          isOdd ? "md:pl-10 md:text-left" : "md:pr-10 md:text-right"
+        }`}
+      >
+        {isOdd ? (
+          <TimelineCard item={item} align="left" />
+        ) : (
+          <div className="md:hidden">
+            <TimelineCard item={item} align="left" />
+          </div>
+        )}
+      </div>
+    </motion.article>
+  );
+};
+
+const TimelineCard = ({ item, align = "left" }) => {
+  return (
+    <motion.div
+      className={`glass-card relative inline-block w-full max-w-md overflow-hidden rounded-2xl p-6 transition-all duration-300 hover:border-trail-gold/30 md:p-7 ${
+        item.highlight ? "border-trail-gold/45" : "border-white/10"
+      }`}
+      style={{
+        background: item.highlight
+          ? "rgba(201, 168, 76, 0.07)"
+          : "rgba(255,255,255,0.035)",
+      }}
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.22, ease: "easeOut" }}
+    >
+      <div className="relative z-10">
+        {item.tag && (
+          <span
+            className={`mb-4 inline-flex rounded-full border px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest ${
+              item.upcoming
+                ? "border-trail-gold/25 bg-trail-gold/10 text-trail-gold"
+                : "border-forest-400/25 bg-forest-400/10 text-forest-300"
+            }`}
+          >
+            {item.tag}
+          </span>
+        )}
+
+        <p className="section-label mb-2 text-[11px]">{item.year}</p>
+
+        <h3 className="mb-2 font-display text-2xl font-semibold leading-tight text-cream md:text-3xl">
+          {item.title}
+        </h3>
+
+        <p className="mb-4 font-body text-sm font-semibold text-trail-gold">
+          {item.subtitle}
+        </p>
+
+        <p
+          className={`font-body text-sm leading-relaxed text-cream-muted ${
+            align === "right" ? "md:ml-auto" : ""
+          }`}
+        >
+          {item.description}
+        </p>
+      </div>
+    </motion.div>
   );
 };
 

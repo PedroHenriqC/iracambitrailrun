@@ -1,105 +1,221 @@
-import React from 'react';
-import SectionTitle from '../components/SectionTitle';
-import Button from '../components/Button';
+import React from "react";
+import { ArrowRight, Leaf, Play, Trees } from "lucide-react";
+import { motion } from "motion/react";
+
+import SectionTitle from "../components/SectionTitle";
+import Button from "../components/Button";
+
+const tags = [
+  "Trail Run",
+  "Mata Atlântica",
+  "~8km",
+  "Todas as idades",
+  "Impacto real",
+];
 
 const About = () => {
   return (
     <section id="sobre" className="section-padding relative overflow-hidden">
-      {/* BG accent */}
+      {/* Background accents */}
       <div
-        className="absolute top-0 right-0 w-96 h-96 pointer-events-none"
+        className="pointer-events-none absolute right-0 top-0 h-96 w-96"
         style={{
-          background: 'radial-gradient(circle, rgba(45,125,45,0.08) 0%, transparent 70%)',
+          background:
+            "radial-gradient(circle, rgba(46,204,113,0.12) 0%, transparent 70%)",
         }}
       />
 
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+      <div
+        className="pointer-events-none absolute bottom-0 left-0 h-[28rem] w-[28rem] opacity-60"
+        style={{
+          background:
+            "radial-gradient(circle, rgba(201,168,76,0.09) 0%, transparent 70%)",
+        }}
+      />
+
+      <div className="section-container relative z-10">
+        <div className="grid grid-cols-1 items-center gap-14 lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,1fr)] lg:gap-24">
           {/* Left — text */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 34 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.28 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
             <SectionTitle
               label="Sobre o Evento"
-              title={<>Uma corrida que<br /><em className="text-trail-gold not-italic">transforma</em></>}
-              subtitle="O Iracambi Trail Running não é só uma corrida. É uma experiência imersiva na maior floresta tropical do planeta, com propósito real e impacto ambiental mensurável."
+              title={
+                <>
+                  Uma corrida que
+                  <br />
+                  <em className="not-italic gradient-text">transforma</em>
+                </>
+              }
+              subtitle="O Iracambi Trail Running não é só uma corrida. É uma experiência imersiva na Mata Atlântica, com propósito real, comunidade e impacto ambiental."
             />
 
-            <div className="space-y-6 mb-10">
-              <p className="text-cream-muted font-body leading-relaxed">
-                Criado pela ONG Iracambi, o evento leva atletas de todos os níveis para correr dentro da reserva da Mata Atlântica em Rosário da Limeira, MG. São aproximadamente 8km de trilhas reais — com subidas, descidas, travessias e muita natureza.
+            <div className="mb-10 space-y-6">
+              <p className="font-body leading-relaxed text-cream-muted md:text-lg">
+                Criado pela ONG Iracambi, o evento leva atletas para correr
+                dentro da reserva da Mata Atlântica em Rosário da Limeira, MG.
+                São aproximadamente 8km de trilhas reais — com subidas,
+                descidas, travessias e muita natureza.
               </p>
-              <p className="text-cream-muted font-body leading-relaxed">
-                A segunda edição chega em 2026, após o sucesso histórico da estreia em 2025, que reuniu mais de 80 atletas e mostrou que é possível fazer esporte de alto nível com alma e responsabilidade ambiental.
+
+              <p className="font-body leading-relaxed text-cream-muted md:text-lg">
+                A segunda edição chega em 2026, após o sucesso histórico da
+                estreia em 2025, que reuniu mais de 80 atletas e mostrou que é
+                possível fazer esporte com alma, experiência e responsabilidade
+                ambiental.
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-3 mb-10">
-              {['Trail Run', 'Mata Atlântica', '~8km', 'Todas as idades', 'Impacto real'].map((tag) => (
-                <span
+            <div className="mb-10 flex flex-wrap gap-3">
+              {tags.map((tag) => (
+                <motion.span
                   key={tag}
-                  className="font-mono text-[10px] tracking-widest uppercase px-3 py-2 text-cream-muted"
-                  style={{
-                    background: 'rgba(255,255,255,0.04)',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    borderRadius: '2px',
-                  }}
+                  className="rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 font-mono text-[10px] uppercase tracking-widest text-cream-muted backdrop-blur-sm"
+                  whileHover={{ y: -2 }}
+                  transition={{ duration: 0.2, ease: "easeOut" }}
                 >
                   {tag}
-                </span>
+                </motion.span>
               ))}
             </div>
 
-            <Button variant="primary" href="#impacto">
-              Ver Impacto Ambiental
-            </Button>
-          </div>
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <Button variant="primary" href="#impacto">
+                Ver Impacto Ambiental
+                <ArrowRight size={16} aria-hidden="true" />
+              </Button>
 
-          {/* Right — image + ONG info */}
-          <div className="relative">
-            <div
-              className="relative overflow-hidden"
-              style={{ borderRadius: '4px', aspectRatio: '4/5' }}
-            >
-              <img
-                src="/images/mata-atlantica.jpg"
-                alt="Cuidando da floresta Iracambi"
-                className="w-full h-full object-cover"
-              />
-              <div
-                className="absolute inset-0"
-                style={{
-                  background: 'linear-gradient(to top, rgba(10,42,10,0.8) 0%, transparent 50%)',
-                }}
-              />
-              {/* ONG badge */}
-              <div
-                className="absolute bottom-6 left-6 right-6 glass-card p-5"
-                style={{ borderRadius: '4px' }}
-              >
-                <div className="flex items-center gap-4">
-                  <img
-                    src="/images/logo-iracambi.png"
-                    alt="Iracambi"
-                    className="w-12 h-12 object-contain flex-shrink-0"
-                  />
-                  <div>
-                    <p className="text-cream font-display text-lg">ONG Iracambi</p>
-                    <p className="text-cream-muted font-body text-xs leading-relaxed mt-1">
-                      Mais de 20 anos restaurando a Mata Atlântica em Minas Gerais
-                    </p>
+              <div className="flex items-center gap-3 text-sm text-cream-muted">
+                <span className="grid h-10 w-10 place-items-center rounded-full border border-trail-gold/20 bg-trail-gold/10 text-trail-gold">
+                  <Trees size={18} strokeWidth={2.4} aria-hidden="true" />
+                </span>
+
+                <span className="max-w-xs leading-relaxed">
+                  Uma experiência entre esporte, floresta e comunidade.
+                </span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right — video + ONG info */}
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, y: 38, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, amount: 0.24 }}
+            transition={{ duration: 0.75, ease: "easeOut" }}
+          >
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 shadow-soft">
+              <div className="relative aspect-[4/5] overflow-hidden bg-forest-950">
+                <video
+                  className="h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  poster="/images/mata-atlantica.jpg"
+                  aria-label="Vídeo da floresta e da experiência Iracambi"
+                >
+                  <source src="/videos/iracambi-forest.mp4" type="video/mp4" />
+                </video>
+
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "linear-gradient(180deg, rgba(5,13,7,0.08) 0%, rgba(5,13,7,0.22) 42%, rgba(5,13,7,0.88) 100%)",
+                  }}
+                />
+
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background:
+                      "radial-gradient(circle at 50% 10%, rgba(46,204,113,0.16), transparent 34rem)",
+                  }}
+                />
+
+                <div className="noise-overlay absolute inset-0 opacity-40" />
+
+                {/* Video indicator */}
+                <div className="absolute left-5 top-5 inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/25 px-3 py-2 backdrop-blur-md">
+                  <span className="grid h-7 w-7 place-items-center rounded-full bg-trail-gold text-forest-950">
+                    <Play size={13} fill="currentColor" aria-hidden="true" />
+                  </span>
+
+                  <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-cream">
+                    Floresta viva
+                  </span>
+                </div>
+
+                {/* ONG badge */}
+                <div className="glass-card absolute bottom-5 left-5 right-5 rounded-2xl p-5">
+                  <div className="relative z-10 flex items-center gap-4">
+                    <div className="grid h-14 w-14 flex-shrink-0 place-items-center rounded-2xl border border-white/10 bg-white/10">
+                      <img
+                        src="/images/logo-iracambi.png"
+                        alt="Logo da Iracambi"
+                        className="h-11 w-11 object-contain"
+                        loading="lazy"
+                      />
+                    </div>
+
+                    <div>
+                      <p className="font-display text-lg font-semibold leading-none text-cream">
+                        ONG Iracambi
+                      </p>
+
+                      <p className="mt-2 font-body text-xs leading-relaxed text-cream-muted">
+                        Mais de 20 anos restaurando a Mata Atlântica em Minas
+                        Gerais.
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
 
+            {/* Floating stat */}
+            <motion.div
+              className="mt-5 rounded-2xl border border-trail-gold/20 bg-forest-950/90 p-4 shadow-gold backdrop-blur-xl"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.65, delay: 0.18, ease: "easeOut" }}
+            >
+              <div className="flex items-start gap-3">
+                <span className="grid h-10 w-10 flex-shrink-0 place-items-center rounded-full bg-forest-400/15 text-forest-300">
+                  <Leaf size={18} strokeWidth={2.4} aria-hidden="true" />
+                </span>
+
+                <div>
+                  <p className="font-display text-xl font-bold leading-none text-cream">
+                    Mata Atlântica
+                  </p>
+
+                  <p className="mt-2 text-xs leading-relaxed text-cream-muted">
+                    Uma corrida pensada para conectar movimento, paisagem e
+                    preservação.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
             {/* Floating accent */}
             <div
-              className="absolute -bottom-6 -left-6 w-32 h-32 opacity-30 pointer-events-none"
+              className="pointer-events-none absolute -bottom-8 -left-8 h-40 w-40 opacity-35"
               style={{
-                background: 'radial-gradient(circle, #4d9b4d 0%, transparent 70%)',
-                filter: 'blur(20px)',
+                background:
+                  "radial-gradient(circle, rgba(46,204,113,0.72) 0%, transparent 70%)",
+                filter: "blur(24px)",
               }}
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

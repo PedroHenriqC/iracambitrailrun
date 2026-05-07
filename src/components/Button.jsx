@@ -1,37 +1,65 @@
-import React from 'react';
+import React from "react";
+import { motion } from "motion/react";
+
+const isExternalUrl = (href) => /^https?:\/\//i.test(href);
 
 const Button = ({
   children,
-  variant = 'primary',
+  variant = "primary",
   href,
   onClick,
-  className = '',
+  className = "",
   disabled = false,
+  target,
+  rel,
+  type = "button",
   ...props
 }) => {
-  const baseClass = variant === 'primary' ? 'btn-primary' : 'btn-outline';
+  const baseClass = variant === "primary" ? "btn-primary" : "btn-outline";
+
+  const stateClass = disabled
+    ? "opacity-50 cursor-not-allowed pointer-events-none"
+    : "";
+
+  const finalClassName = `${baseClass} ${className} ${stateClass}`.trim();
+
+  const motionProps = disabled
+    ? {}
+    : {
+        whileHover: { y: -2 },
+        whileTap: { scale: 0.98 },
+        transition: { duration: 0.2, ease: "easeOut" },
+      };
 
   if (href) {
+    const external = isExternalUrl(href);
+
     return (
-      <a
-        href={href}
-        className={`${baseClass} ${className} ${disabled ? 'opacity-50 cursor-not-allowed pointer-events-none' : ''}`}
+      <motion.a
+        href={disabled ? undefined : href}
+        className={finalClassName}
+        target={target ?? (external ? "_blank" : undefined)}
+        rel={rel ?? (external ? "noopener noreferrer" : undefined)}
+        aria-disabled={disabled ? "true" : undefined}
+        {...motionProps}
         {...props}
       >
         {children}
-      </a>
+      </motion.a>
     );
   }
 
   return (
-    <button
+    <motion.button
+      type={type}
       onClick={onClick}
       disabled={disabled}
-      className={`${baseClass} ${className} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
+      className={finalClassName}
+      {...motionProps}
       {...props}
     >
       {children}
-    </button>
+    </motion.button>
   );
 };
 

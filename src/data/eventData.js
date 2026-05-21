@@ -14,11 +14,18 @@ export const eventInfo = {
   edition: "2ª Edição",
   year: 2026,
   location: "Rosário da Limeira, MG",
-  distance: "~8km",
+  distance: "12km",
   environment: "Mata Atlântica",
-  type: "Trail Run",
+  type: "Trail Run 12km",
   inscriptionsOpen: false,
-  // Target date for countdown — update when confirmed
+
+  inscriptionPeriod: "22 de maio a 22 de junho de 2026",
+  walkingDistance: "3km",
+  kidsRace: "Corrida infantil",
+  vacancies: "150 participantes",
+  registrationPlatform: "Sporttimer",
+  kitStatus: "Kit atleta disponível",
+
   eventDate: new Date(2026, 6, 5, 8, 0, 0),
   organizerName: "ONG Iracambi",
   organizerUrl: "https://iracambi.com",
@@ -38,10 +45,10 @@ export const navLinks = [
 ];
 
 export const stats = [
-  { value: "8km", label: "de trilha" },
-  { value: "80+", label: "atletas em 2025" },
-  { value: "20+", label: "anos de ONG" },
-  { value: "100%", label: "Mata Atlântica" },
+  { value: "12km", label: "trail run" },
+  { value: "3km", label: "caminhada ecológica" },
+  { value: "150", label: "vagas limitadas" },
+  { value: "1 árvore", label: "por inscrição" },
 ];
 
 export const impactCards = [
@@ -79,19 +86,20 @@ export const timeline = [
   },
   {
     year: "2026",
-    title: "Mountain Bike",
-    subtitle: "Em breve",
+    title: "Inscrições Oficiais",
+    subtitle: "22 de maio a 22 de junho",
     description:
-      "Em 2026 o evento ganha uma nova modalidade: pela primeira vez, uma edição de Mountain Bike será realizada nas trilhas da reserva Iracambi, ampliando o alcance do evento e conectando ainda mais pessoas à natureza.",
+      "As inscrições da 2ª edição acontecem via Sporttimer, com vagas limitadas e modalidades para Trail Run 12km, caminhada ecológica 3km e corrida infantil.",
     highlight: false,
-    tag: "Em breve",
+    upcoming: true,
+    tag: "Sporttimer",
   },
   {
     year: "2026",
     title: "2ª Trail Run",
-    subtitle: "05 de julho",
+    subtitle: "05 de julho de 2026",
     description:
-      "A segunda edição da corrida de trilha acontece em 05 de julho de 2026, prometendo superar tudo que foi feito. Mais atletas, mais impacto ambiental, mais uma história para contar nas trilhas da Mata Atlântica.",
+      "A segunda edição acontece em 05 de julho de 2026, com largada e chegada na sede da ONG Iracambi, reunindo esporte, natureza, comunidade e impacto ambiental.",
     tag: "Data oficial",
     upcoming: true,
     highlight: true,
@@ -104,7 +112,7 @@ export const galleryCategories = [
   { id: "trilhas", label: "As Trilhas da Mata Atlântica" },
   { id: "amanhecer", label: "Amanhecer na Mata Atlântica" },
   { id: "parceiros", label: "Parceiros e Apoiadores" },
-  { id: "atletas", label: " Atletas na Trilha" },
+  { id: "atletas", label: "Atletas na Trilha" },
   { id: "voluntarios", label: "Voluntários" },
   { id: "equipe", label: "Equipe Iracambi" },
   { id: "premiacao", label: "Premiação" },
@@ -289,11 +297,11 @@ export const gallery = [
 
 export const raceInfo = [
   { icon: "map-pin", label: "Local", value: "Rosário da Limeira, MG" },
-  { icon: "trees", label: "Ambiente", value: "Mata Atlântica" },
-  { icon: "footprints", label: "Modalidade", value: "Trail Run" },
-  { icon: "route", label: "Percurso", value: "~8km" },
-  { icon: "mountain", label: "Terreno", value: "Subidas, descidas e travessias" },
-  { icon: "users", label: "Edição Anterior", value: "80+ atletas" },
+  { icon: "footprints", label: "Modalidade", value: "Trail Run 12km" },
+  { icon: "route", label: "Caminhada", value: "Ecológica 3km" },
+  { icon: "users", label: "Corrida Infantil", value: "Categorias infantis" },
+  { icon: "mountain", label: "Vagas", value: "150 participantes" },
+  { icon: "trees", label: "Inscrições", value: "Via Sporttimer" },
 ];
 
 export const sponsors = {
@@ -319,36 +327,43 @@ export const sponsors = {
 
 export const faqItems = [
   {
-    question: "Quando as inscrições abrem?",
-    answer: "As inscrições para a 2ª edição do Iracambi Trail Run ainda não têm data confirmada. Acompanhe nossas redes sociais e cadastre seu e-mail para ser avisado em primeira mão.",
+    question: "Quando acontecem as inscrições?",
+    answer:
+      "As inscrições acontecem de 22 de maio a 22 de junho de 2026, exclusivamente pela Sporttimer, por link divulgado nos canais oficiais da Iracambi.",
   },
   {
     question: "Qual a distância do percurso?",
-    answer: "O percurso tem aproximadamente 8km, percorridos inteiramente em trilhas dentro da reserva da Mata Atlântica da ONG Iracambi.",
+    answer:
+      "A prova principal terá aproximadamente 12km em trilhas dentro da reserva da Mata Atlântica da ONG Iracambi.",
+  },
+  {
+    question: "Haverá caminhada ecológica?",
+    answer: "Sim. O evento contará com caminhada ecológica de 3km.",
+  },
+  {
+    question: "Haverá corrida infantil?",
+    answer:
+      "Sim. O evento também terá corrida infantil com categorias específicas.",
   },
   {
     question: "A corrida é para qualquer nível?",
-    answer: "O percurso apresenta subidas, descidas e travessias típicas de trail run. Recomendamos que os participantes tenham experiência mínima em corridas e boa condição física, embora não seja uma prova de elite.",
+    answer:
+      "O percurso apresenta subidas, descidas, travessias e trechos de terreno instável. Recomendamos que os participantes tenham experiência mínima em corridas e boa condição física.",
   },
   {
     question: "O que está incluso na inscrição?",
-    answer: "Cada inscrição inclui participação na corrida, kit do evento, suporte médico, abastecimento nas trilhas, e o plantio de uma árvore nativa em seu nome. Outros benefícios serão divulgados na abertura das inscrições.",
+    answer:
+      "O evento contará com kit atleta disponível. As informações completas sobre valores, modalidades e itens do kit estarão na página oficial de inscrição.",
   },
   {
     question: "Como chegar à ONG Iracambi?",
-    answer: "A ONG Iracambi está localizada em Rosário da Limeira, MG. O acesso é feito por estrada de terra. Mais informações sobre transporte e hospedagem serão disponibilizadas com a abertura das inscrições.",
-  },
-  {
-    question: "Posso ir sem ser atleta?",
-    answer: "Sim! O evento é um momento de celebração da natureza e da comunidade. Torcedores e visitantes são muito bem-vindos para apoiar os atletas e conhecer a reserva Iracambi.",
+    answer:
+      "A ONG Iracambi está localizada em Rosário da Limeira, MG. O regulamento prevê ônibus gratuitos saindo de Muriaé e Rosário da Limeira no dia do evento.",
   },
   {
     question: "O evento tem compromisso ambiental?",
-    answer: "É o coração do evento. Cada inscrição financia o plantio de uma muda nativa da Mata Atlântica. Além disso, o evento segue práticas de deixar zero rastro nas trilhas.",
-  },
-  {
-    question: "Haverá categorias por idade/sexo?",
-    answer: "Sim. As categorias serão divulgadas com a abertura oficial das inscrições. Na 1ª edição houve categorias masculina e feminina por faixas etárias.",
+    answer:
+      "Sim. A Iracambi plantará uma muda de árvore para cada inscrição realizada, reforçando seu compromisso com o reflorestamento da Mata Atlântica.",
   },
 ];
 

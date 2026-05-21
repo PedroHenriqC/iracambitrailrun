@@ -6,21 +6,15 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import Button from "../components/Button";
+import { eventInfo, stats } from "../data/eventData";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
-
-const heroStats = [
-  { v: "~8km", l: "de trilha" },
-  { v: "80+", l: "atletas em 2025" },
-  { v: "100%", l: "Mata Atlântica" },
-  { v: "1 árvore", l: "por inscrição" },
-];
 
 const heroInfo = [
   {
     icon: CalendarDays,
-    label: "Edição",
-    value: "2ª Edição · 2026",
+    label: "Data oficial",
+    value: "05 de julho de 2026",
   },
   {
     icon: MapPin,
@@ -29,8 +23,13 @@ const heroInfo = [
   },
   {
     icon: Route,
-    label: "Percurso",
-    value: "Trail Run · ~8km",
+    label: "Modalidades",
+    value: "Trail Run 12km · Caminhada 3km · Infantil",
+  },
+  {
+    icon: Clock,
+    label: "Inscrições",
+    value: "22/05 a 22/06 · Via Sporttimer",
   },
 ];
 
@@ -170,8 +169,8 @@ const Hero = () => {
             >
               <Clock size={13} className="text-trail-gold" aria-hidden="true" />
 
-              <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-trail-gold">
-                Inscrições em breve
+              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-trail-gold sm:text-[11px]">
+                Inscrições 22/05 a 22/06
               </span>
 
               <span
@@ -181,7 +180,9 @@ const Hero = () => {
             </div>
 
             {/* Edition tag */}
-            <p className="hero-animate section-label mb-5">2ª Edição · 2026</p>
+            <p className="hero-animate section-label mb-5">
+              2ª Edição · 05 de julho de 2026
+            </p>
 
             {/* Main title */}
             <h1 className="hero-animate mb-6 max-w-5xl font-display text-[clamp(3.4rem,14vw,9.5rem)] font-bold leading-[0.82] tracking-[-0.095em] text-cream">
@@ -207,17 +208,16 @@ const Hero = () => {
 
             {/* Subtitle */}
             <p className="hero-animate mb-10 max-w-2xl text-pretty font-body text-lg leading-relaxed text-cream-muted md:text-xl">
-              Corra entre as árvores, sinta a terra sob os pés e deixe uma
-              floresta crescer depois de você.{" "}
-              <span className="text-forest-300">
-                Mata Atlântica · Rosário da Limeira, MG.
-              </span>
+              Trail Run 12km, caminhada ecológica 3km e corrida infantil em uma
+              experiência conectada à Mata Atlântica, ao esporte e ao
+              reflorestamento.{" "}
+              <span className="text-forest-300">Rosário da Limeira, MG.</span>
             </p>
 
             {/* CTA buttons */}
             <div className="hero-animate flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
-              <Button variant="primary" href="#sobre">
-                Conheça o Evento
+              <Button variant="primary" href="#informacoes">
+                Ver Informações
               </Button>
 
               <Button variant="outline" href="#galeria">
@@ -231,14 +231,14 @@ const Hero = () => {
               style={{ borderColor: "rgba(255,255,255,0.1)" }}
               aria-label="Resumo do evento"
             >
-              {heroStats.map((stat) => (
-                <div key={stat.l}>
+              {stats.map((stat) => (
+                <div key={stat.label}>
                   <p className="font-display text-2xl font-bold leading-none md:text-3xl">
-                    <span className="gradient-text">{stat.v}</span>
+                    <span className="gradient-text">{stat.value}</span>
                   </p>
 
                   <p className="mt-2 font-mono text-[10px] uppercase tracking-widest text-cream-subtle md:text-[11px]">
-                    {stat.l}
+                    {stat.label}
                   </p>
                 </div>
               ))}
@@ -287,15 +287,14 @@ const Hero = () => {
 
             <div className="mt-5 rounded-2xl bg-forest-400/10 p-4">
               <p className="text-sm leading-relaxed text-cream-muted">
-                Uma experiência de trail Run conectada à floresta, à comunidade
-                e ao impacto ambiental.
+                Inscrições via {eventInfo.registrationPlatform}, com vagas
+                limitadas e kit atleta disponível.
               </p>
             </div>
           </motion.aside>
         </div>
       </div>
 
-      {/* Scroll indicator */}
       {/* Scroll indicator */}
       <a
         href="#sobre"

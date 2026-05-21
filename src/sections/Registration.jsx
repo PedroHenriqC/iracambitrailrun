@@ -1,16 +1,21 @@
 import React from "react";
 import {
   ArrowUpRight,
-  Bell,
   CalendarDays,
   ExternalLink,
+  Footprints,
   Leaf,
+  Route,
   ShieldCheck,
+  Ticket,
   Trees,
+  Users,
 } from "lucide-react";
 import { motion } from "motion/react";
 
-const REGISTRATION_URL = "#inscricao";
+import { eventInfo } from "../data/eventData";
+
+const REGISTRATION_URL = "https://www.instagram.com/ong_iracambi/";
 
 const getSafeLinkProps = (url) => {
   const isExternal = /^https?:\/\//i.test(url);
@@ -27,6 +32,29 @@ const getSafeLinkProps = (url) => {
     rel: "noopener noreferrer",
   };
 };
+
+const featureCards = [
+  {
+    icon: Route,
+    title: "Trail Run 12km",
+    description: "Prova principal em trilhas da Mata Atlântica.",
+  },
+  {
+    icon: Footprints,
+    title: "Caminhada 3km",
+    description: "Caminhada ecológica para viver a experiência da floresta.",
+  },
+  {
+    icon: Users,
+    title: "Corrida infantil",
+    description: "Modalidade infantil com categorias específicas.",
+  },
+  {
+    icon: Ticket,
+    title: "Kit atleta disponível",
+    description: "Informações completas no ambiente oficial de inscrição.",
+  },
+];
 
 const Registration = () => {
   const registrationProps = getSafeLinkProps(REGISTRATION_URL);
@@ -89,8 +117,8 @@ const Registration = () => {
                 aria-hidden="true"
               />
 
-              <span className="font-mono text-[11px] uppercase tracking-[0.3em] text-trail-gold">
-                Inscrições em breve
+              <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-trail-gold sm:text-[11px]">
+                Inscrições 22/05 a 22/06
               </span>
             </div>
 
@@ -104,41 +132,34 @@ const Registration = () => {
             </h2>
 
             <p className="mb-8 max-w-2xl font-body text-lg leading-relaxed text-cream-muted md:text-xl">
-              As inscrições para a 2ª edição do Iracambi Trail Run ainda não
-              estão abertas. Esta página apresenta o evento e direciona para o
-              ambiente oficial de inscrição quando o link estiver disponível.
+              As inscrições acontecem de{" "}
+              <span className="font-semibold text-trail-gold">
+                {eventInfo.inscriptionPeriod}
+              </span>
+              , exclusivamente via {eventInfo.registrationPlatform}, com vagas
+              limitadas para a 2ª edição do Iracambi Trail Run.
             </p>
 
             <div className="mb-10 grid max-w-2xl grid-cols-1 gap-3 sm:grid-cols-2">
-              <div className="glass-card rounded-2xl p-5">
-                <div className="relative z-10 flex items-center gap-4">
-                  <span className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-full bg-forest-400/15 text-forest-300">
-                    <Trees size={18} strokeWidth={2.4} aria-hidden="true" />
-                  </span>
+              {featureCards.map(({ icon: Icon, title, description }) => (
+                <div key={title} className="glass-card rounded-2xl p-5">
+                  <div className="relative z-10 flex items-center gap-4">
+                    <span className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-full bg-trail-gold/10 text-trail-gold">
+                      <Icon size={18} strokeWidth={2.4} aria-hidden="true" />
+                    </span>
 
-                  <p className="font-body text-sm leading-relaxed text-cream-muted">
-                    Uma experiência conectada à Mata Atlântica, ao esporte e à
-                    preservação.
-                  </p>
+                    <div>
+                      <p className="font-display text-base font-semibold leading-tight text-cream">
+                        {title}
+                      </p>
+
+                      <p className="mt-1 font-body text-xs leading-relaxed text-cream-muted">
+                        {description}
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-
-              <div className="glass-card rounded-2xl p-5">
-                <div className="relative z-10 flex items-center gap-4">
-                  <span className="grid h-11 w-11 flex-shrink-0 place-items-center rounded-full bg-trail-gold/10 text-trail-gold">
-                    <CalendarDays
-                      size={18}
-                      strokeWidth={2.4}
-                      aria-hidden="true"
-                    />
-                  </span>
-
-                  <p className="font-body text-sm leading-relaxed text-cream-muted">
-                    Informações finais serão confirmadas nos canais oficiais da
-                    organização.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
 
             <motion.a
@@ -146,15 +167,15 @@ const Registration = () => {
               {...registrationProps}
               whileHover={{ y: -3 }}
               whileTap={{ scale: 0.98 }}
-              aria-label="Acessar página externa de inscrição"
+              aria-label="Acompanhar inscrição nos canais oficiais da Iracambi"
             >
-              Inscrições em Breve
+              Acompanhar inscrição
               <ArrowUpRight size={16} strokeWidth={2.4} aria-hidden="true" />
             </motion.a>
 
             <p className="mt-4 max-w-md font-body text-xs leading-relaxed text-cream-subtle">
-              Você será redirecionado para uma página externa quando o link
-              oficial de inscrição estiver disponível.
+              O link oficial da {eventInfo.registrationPlatform} será divulgado
+              nos canais oficiais da Iracambi.
             </p>
           </motion.div>
 
@@ -169,24 +190,28 @@ const Registration = () => {
             <div className="relative z-10">
               <div className="mb-7 flex items-center gap-3">
                 <span className="grid h-12 w-12 place-items-center rounded-full border border-trail-gold/20 bg-trail-gold/10 text-trail-gold">
-                  <Bell size={21} strokeWidth={2.4} aria-hidden="true" />
+                  <CalendarDays
+                    size={21}
+                    strokeWidth={2.4}
+                    aria-hidden="true"
+                  />
                 </span>
 
                 <div>
                   <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-cream-subtle">
-                    Próximo passo
+                    Período oficial
                   </p>
 
                   <h3 className="mt-1 font-display text-2xl font-semibold leading-tight text-cream">
-                    Acompanhe a abertura
+                    22 de maio a 22 de junho
                   </h3>
                 </div>
               </div>
 
               <p className="mb-7 font-body text-sm leading-relaxed text-cream-muted md:text-base">
-                Para evitar coleta desnecessária de dados, esta versão não
-                solicita nome, e-mail ou telefone. A inscrição será realizada no
-                ambiente oficial indicado pela organização.
+                A página principal destaca as informações essenciais do evento.
+                Valores, termos, categorias e detalhes completos ficam no
+                ambiente oficial de inscrição.
               </p>
 
               <div className="space-y-3">
@@ -201,12 +226,12 @@ const Registration = () => {
 
                     <div>
                       <p className="font-display text-base font-semibold text-cream">
-                        Sem coleta de dados neste site
+                        Inscrição em ambiente oficial
                       </p>
 
                       <p className="mt-1 font-body text-xs leading-relaxed text-cream-muted">
-                        O fluxo fica mais simples, claro e seguro para o
-                        público.
+                        O cadastro será realizado pela plataforma{" "}
+                        {eventInfo.registrationPlatform}.
                       </p>
                     </div>
                   </div>
@@ -223,12 +248,12 @@ const Registration = () => {
 
                     <div>
                       <p className="font-display text-base font-semibold text-cream">
-                        Inscrição em ambiente externo
+                        Vagas limitadas
                       </p>
 
                       <p className="mt-1 font-body text-xs leading-relaxed text-cream-muted">
-                        O botão será conectado ao link oficial assim que ele for
-                        confirmado.
+                        Limite total de {eventInfo.vacancies}. As inscrições
+                        podem encerrar antes caso o limite seja atingido.
                       </p>
                     </div>
                   </div>
@@ -245,7 +270,8 @@ const Registration = () => {
                   />
 
                   <p className="font-body text-sm leading-relaxed text-cream-muted">
-                    Esporte, floresta e comunidade em uma experiência viva.
+                    Cada inscrição contribui para o plantio de uma muda de
+                    árvore nativa da Mata Atlântica.
                   </p>
                 </div>
               </div>

@@ -43,12 +43,11 @@ const Sponsors = () => {
             />
 
             <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-trail-gold">
-              Patrocinadores É Parceiros
+              Patrocinadores e Parceiros
             </span>
           </div>
 
           <SectionTitle
-           
             title={
               <>
                 Quem torna
@@ -56,7 +55,7 @@ const Sponsors = () => {
                 isso <em className="not-italic gradient-text">possível</em>
               </>
             }
-            subtitle="O Iracambi Trail Run existe graças ao apoio de organizações que acreditam na união entre esporte, comunidade e meio ambiente."
+            subtitle="O Iracambi Trail Run reúne esporte, comunidade e impacto ambiental com o apoio de pessoas, marcas e organizações que acreditam na preservação da Mata Atlântica."
             align="center"
           />
         </motion.div>
@@ -103,29 +102,33 @@ const Sponsors = () => {
           </div>
         </motion.div>
 
-        <div className="divider-gold mb-12" />
+        {sponsors.partners.length > 0 && (
+          <>
+            <div className="divider-gold mb-12" />
 
-        {/* Partners */}
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.25 }}
-          transition={{ duration: 0.65, ease: "easeOut" }}
-        >
-          <p className="mb-6 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-cream-subtle">
-            Parceiros
-          </p>
+            {/* Partners */}
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.65, ease: "easeOut" }}
+            >
+              <p className="mb-6 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-cream-subtle">
+                Parceiros
+              </p>
 
-          <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-            {sponsors.partners.map((sponsor, index) => (
-              <SponsorCard
-                key={`${sponsor.name}-${index}`}
-                sponsor={sponsor}
-                size="small"
-              />
-            ))}
-          </div>
-        </motion.div>
+              <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                {sponsors.partners.map((sponsor, index) => (
+                  <SponsorCard
+                    key={`${sponsor.name}-${index}`}
+                    sponsor={sponsor}
+                    size="small"
+                  />
+                ))}
+              </div>
+            </motion.div>
+          </>
+        )}
 
         {/* Become sponsor CTA */}
         <motion.div
@@ -145,17 +148,19 @@ const Sponsors = () => {
             </p>
 
             <p className="mx-auto mb-7 max-w-md font-body text-sm leading-relaxed text-cream-muted md:text-base">
-              Associe sua marca a um evento que combina esporte, natureza,
-              comunidade e impacto ambiental na Mata Atlântica.
+              Associe sua marca a um evento que combina Trail Run, caminhada
+              ecológica, corrida infantil, comunidade e impacto ambiental na
+              Mata Atlântica.
             </p>
 
-          <a
-            href={`mailto:${officialContact.email}`}
-            className="btn-outline inline-flex px-6 py-3 text-xs"
-            aria-label="Enviar e-mail para contato da Iracambi">
-            <Mail size={15} strokeWidth={2.4} aria-hidden="true" />
-            Fale conosco
-          </a>          
+            <a
+              href={`mailto:${officialContact.email}`}
+              className="btn-outline inline-flex px-6 py-3 text-xs"
+              aria-label="Enviar e-mail para contato da Iracambi"
+            >
+              <Mail size={15} strokeWidth={2.4} aria-hidden="true" />
+              Fale conosco
+            </a>
           </div>
         </motion.div>
       </div>

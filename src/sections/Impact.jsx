@@ -75,10 +75,11 @@ const Impact = () => {
               <>
                 Cada inscrição
                 <br />
-                fortalece uma{" "}
-                <em className="not-italic gradient-text">floresta</em>
+                planta uma{" "}
+                <em className="not-italic gradient-text">nova muda</em>
               </>
             }
+            subtitle="O Iracambi Trail Run conecta esporte, natureza e reflorestamento: cada inscrição realizada contribui para o plantio de uma muda nativa da Mata Atlântica."
           />
 
           <motion.div
@@ -95,23 +96,24 @@ const Impact = () => {
                   </span>
 
                   <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-cream-subtle">
-                    Resultado da 1ª edição
+                    Compromisso ambiental
                   </p>
                 </div>
 
                 <div className="mb-4 flex flex-wrap items-baseline gap-3">
                   <span className="font-display text-[clamp(4rem,10vw,7rem)] font-bold leading-none tracking-[-0.08em] gradient-text">
-                    80+
+                    1
                   </span>
 
                   <span className="font-display text-2xl font-semibold text-cream md:text-3xl">
-                    árvores
+                    muda por inscrição
                   </span>
                 </div>
 
                 <p className="font-body text-sm leading-relaxed text-cream-muted md:text-base">
-                  plantadas após a 1ª edição do Iracambi Trail Run em 2025. Em
-                  2026, a proposta é ampliar esse impacto junto à comunidade.
+                  Para cada inscrição realizada, a Iracambi irá plantar uma muda
+                  de árvore, fortalecendo seu compromisso de reflorestar a Mata
+                  Atlântica.
                 </p>
               </div>
             </div>
@@ -167,8 +169,8 @@ const Impact = () => {
               </p>
 
               <p className="mx-auto max-w-xl font-body text-sm leading-relaxed text-cream-muted md:text-base">
-                Rosário da Limeira, Minas Gerais · uma iniciativa conectada à
-                restauração, educação ambiental e preservação da Mata Atlântica.
+                Rosário da Limeira, Minas Gerais · restauração, educação
+                ambiental e preservação da Mata Atlântica conectadas ao esporte.
               </p>
             </div>
           </div>

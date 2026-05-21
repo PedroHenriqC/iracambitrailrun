@@ -1,17 +1,23 @@
 import React from "react";
 import {
   ArrowUpRight,
+  Bus,
+  Clock,
+  Droplets,
   Footprints,
   MapPin,
   Mountain,
   Route,
+  Ticket,
   Trees,
   Users,
 } from "lucide-react";
 import { motion } from "motion/react";
 
 import SectionTitle from "../components/SectionTitle";
-import { raceInfo } from "../data/eventData";
+import { eventInfo, raceInfo } from "../data/eventData";
+
+const BUS_IMAGE_SRC = "/images/onibus-amarelo.png";
 
 const iconMap = {
   "map-pin": MapPin,
@@ -20,7 +26,34 @@ const iconMap = {
   route: Route,
   mountain: Mountain,
   users: Users,
+  bus: Bus,
+  clock: Clock,
+  droplets: Droplets,
+  ticket: Ticket,
 };
+
+const logisticsCards = [
+  {
+    icon: Clock,
+    label: "Largada",
+    value: "Corrida às 8h · Caminhada às 8h15",
+  },
+  {
+    icon: Bus,
+    label: "Transporte",
+    value: "Ônibus gratuitos às 6h",
+  },
+  {
+    icon: Droplets,
+    label: "Hidratação",
+    value: "Pontos no 4,5km e 9km",
+  },
+  {
+    icon: Ticket,
+    label: "Kit atleta",
+    value: eventInfo.kitStatus,
+  },
+];
 
 const InfoCard = ({ info, index }) => {
   const Icon = iconMap[info.icon] || Route;
@@ -54,6 +87,118 @@ const InfoCard = ({ info, index }) => {
         </div>
       </div>
     </motion.article>
+  );
+};
+
+const LogisticsCard = ({ item, index }) => {
+  const Icon = item.icon;
+
+  return (
+    <motion.article
+      className="rounded-2xl border border-white/10 bg-white/[0.035] p-4 transition-all duration-300 hover:border-trail-gold/25 hover:bg-white/[0.055]"
+      initial={{ opacity: 0, y: 22 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.35 }}
+      transition={{
+        duration: 0.5,
+        delay: index * 0.05,
+        ease: "easeOut",
+      }}
+    >
+      <div className="mb-3 grid h-10 w-10 place-items-center rounded-full border border-trail-gold/20 bg-trail-gold/10 text-trail-gold">
+        <Icon size={17} strokeWidth={2.35} aria-hidden="true" />
+      </div>
+
+      <p className="mb-1 font-mono text-[9px] uppercase tracking-[0.22em] text-cream-subtle">
+        {item.label}
+      </p>
+
+      <p className="font-body text-sm font-semibold leading-snug text-cream">
+        {item.value}
+      </p>
+    </motion.article>
+  );
+};
+
+const VideoCard = () => {
+  return (
+    <motion.div
+      className="overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.035] shadow-soft"
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
+    >
+      <div className="relative h-[340px] overflow-hidden bg-forest-950 sm:h-[420px] lg:h-[520px]">
+        <video
+          className="h-full w-full object-cover object-[center_38%] transition-transform duration-700 hover:scale-[1.02]"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="metadata"
+          poster="/images/mata-atlantica.jpg"
+          aria-label="Vídeo da edição de 2025 do Iracambi Trail Run"
+        >
+          <source src="/videos/iracambi-run-2025.mp4" type="video/mp4" />
+        </video>
+
+        <div
+          className="pointer-events-none absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(5,13,7,0.02) 0%, rgba(5,13,7,0.06) 55%, rgba(5,13,7,0.22) 100%)",
+          }}
+        />
+
+        <div className="noise-overlay pointer-events-none absolute inset-0 opacity-20" />
+      </div>
+
+      <div className="border-t border-white/10 bg-forest-950/75 p-5 backdrop-blur-xl">
+        <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-trail-gold">
+          Edição 2025
+        </p>
+
+        <p className="mt-2 font-display text-lg font-semibold leading-tight text-cream sm:text-xl">
+          A energia da primeira edição nas trilhas da Mata Atlântica.
+        </p>
+      </div>
+    </motion.div>
+  );
+};
+
+const BusCard = () => {
+  return (
+    <motion.div
+      className="overflow-hidden rounded-[2rem] border border-trail-gold/20 bg-white/[0.035] shadow-soft"
+      whileHover={{ y: -5 }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
+    >
+      <div className="relative h-[210px] overflow-hidden bg-cream sm:h-[250px]">
+        <img
+          src={BUS_IMAGE_SRC}
+          alt="Ônibus amarelo escolar usado como apoio de transporte do evento"
+          className="h-full w-full object-contain p-4 transition-transform duration-700 hover:scale-[1.03]"
+          loading="lazy"
+        />
+      </div>
+
+      <div className="border-t border-white/10 bg-forest-950/75 p-5 backdrop-blur-xl">
+        <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-trail-gold/25 bg-trail-gold/10 px-3 py-2">
+          <Bus size={15} className="text-trail-gold" aria-hidden="true" />
+
+          <span className="font-mono text-[9px] uppercase tracking-[0.22em] text-trail-gold">
+            Transporte
+          </span>
+        </div>
+
+        <p className="font-display text-xl font-semibold leading-tight text-cream">
+          Ônibus gratuitos no dia do evento
+        </p>
+
+        <p className="mt-2 font-body text-xs leading-relaxed text-cream-muted">
+          Saída prevista às 6h de Muriaé, com retorno por volta de 12h30.
+        </p>
+      </div>
+    </motion.div>
   );
 };
 
@@ -97,7 +242,7 @@ const RaceInfo = () => {
                   precisa <em className="not-italic gradient-text">saber</em>
                 </>
               }
-              subtitle="Conheça os detalhes da 2ª edição. Informações completas serão disponibilizadas na abertura das inscrições."
+              subtitle="A 2ª edição reúne Trail Run 12km, caminhada ecológica 3km e corrida infantil, com inscrições via Sporttimer e vagas limitadas."
             />
 
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -109,9 +254,25 @@ const RaceInfo = () => {
                 />
               ))}
             </div>
+
+            <div className="mt-6 rounded-[2rem] border border-trail-gold/15 bg-trail-gold/[0.055] p-5 sm:p-6">
+              <p className="mb-4 font-mono text-[10px] uppercase tracking-[0.26em] text-trail-gold">
+                Detalhes oficiais
+              </p>
+
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {logisticsCards.map((item, index) => (
+                  <LogisticsCard
+                    key={`${item.label}-${item.value}`}
+                    item={item}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
 
-          {/* Right — image + map */}
+          {/* Right — video + transport + map */}
           <motion.div
             className="space-y-4"
             initial={{ opacity: 0, y: 34 }}
@@ -119,43 +280,9 @@ const RaceInfo = () => {
             viewport={{ once: true, amount: 0.25 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            {/* Photo */}
-            {/* Video 2025 */}
-            {/* Video 2025 */}
-            <div className="relative h-[340px] overflow-hidden rounded-[2rem] border border-white/10 bg-forest-950 shadow-soft sm:h-[420px] lg:h-[520px]">
-              <video
-                className="h-full w-full object-cover object-[center_38%] transition-transform duration-700 hover:scale-[1.02]"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                poster="/images/mata-atlantica.jpg"
-                aria-label="Vídeo da edição de 2025 do Iracambi Trail Run"
-              >
-                <source src="/videos/iracambi-run-2025.mp4" type="video/mp4" />
-              </video>
+            <VideoCard />
 
-              <div
-                className="pointer-events-none absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(180deg, rgba(5,13,7,0.04) 0%, rgba(5,13,7,0.16) 42%, rgba(5,13,7,0.82) 100%)",
-                }}
-              />
-
-              <div className="noise-overlay pointer-events-none absolute inset-0 opacity-25" />
-
-              <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/10 bg-black/35 p-4 backdrop-blur-xl sm:bottom-5 sm:left-5 sm:right-5">
-                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-trail-gold">
-                  Edição 2025
-                </p>
-
-                <p className="mt-2 font-display text-lg font-semibold leading-tight text-cream sm:text-xl">
-                  A energia da primeira edição nas trilhas da Mata Atlântica.
-                </p>
-              </div>
-            </div>
+            <BusCard />
 
             {/* Map card */}
             <motion.div
@@ -172,7 +299,8 @@ const RaceInfo = () => {
               </p>
 
               <p className="mx-auto mb-6 max-w-sm font-body text-sm leading-relaxed text-cream-muted">
-                ONG Iracambi · Reserva da Mata Atlântica
+                Sede da ONG Iracambi · Largada e chegada na reserva da Mata
+                Atlântica
               </p>
 
               <a

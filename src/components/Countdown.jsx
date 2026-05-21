@@ -13,7 +13,9 @@ const formatNumber = (value) => String(value).padStart(2, "0");
 
 const getRemainingTime = (eventDate) => {
   const target =
-    eventDate instanceof Date ? eventDate.getTime() : new Date(eventDate).getTime();
+    eventDate instanceof Date
+      ? eventDate.getTime()
+      : new Date(eventDate).getTime();
 
   if (Number.isNaN(target)) {
     return {
@@ -78,7 +80,7 @@ const CountdownUnit = ({ value, label, index }) => (
 
 const Countdown = () => {
   const [timeLeft, setTimeLeft] = useState(() =>
-    getRemainingTime(eventInfo.eventDate)
+    getRemainingTime(eventInfo.eventDate),
   );
 
   useEffect(() => {
@@ -100,7 +102,7 @@ const Countdown = () => {
       { value: timeLeft.minutes, label: "Minutos" },
       { value: timeLeft.seconds, label: "Segundos" },
     ],
-    [timeLeft]
+    [timeLeft],
   );
 
   const statusText = !timeLeft.isValid
@@ -146,7 +148,8 @@ const Countdown = () => {
         </h2>
 
         <p className="mx-auto mb-10 max-w-2xl font-body text-base leading-relaxed text-cream-muted md:text-lg">
-          Prepare-se para uma experiência entre trilhas, floresta e propósito na
+          Prepare-se para o Trail Run 12km, caminhada ecológica 3km e corrida
+          infantil em uma experiência entre trilhas, floresta e propósito na
           Mata Atlântica.
         </p>
 
@@ -165,15 +168,19 @@ const Countdown = () => {
           ))}
         </div>
 
-        <div className="mx-auto mt-10 flex w-fit items-center gap-2 rounded-full border border-white/10 bg-white/[0.045] px-4 py-2 text-cream-muted">
+        <div className="mx-auto mt-10 flex w-fit max-w-full flex-col items-center gap-3 rounded-3xl border border-white/10 bg-white/[0.045] px-5 py-4 text-cream-muted sm:flex-row sm:rounded-full">
           <CalendarDays
             size={15}
             className="text-trail-gold"
             aria-hidden="true"
           />
 
-          <p className="font-body text-xs leading-relaxed sm:text-sm">
-            Data oficial: 05 de julho de 2026.
+          <p className="font-body text-center text-xs leading-relaxed sm:text-sm">
+            Data oficial: 05 de julho de 2026 · Inscrições de{" "}
+            <span className="font-semibold text-trail-gold">
+              {eventInfo.inscriptionPeriod}
+            </span>{" "}
+            via {eventInfo.registrationPlatform}.
           </p>
         </div>
       </motion.div>

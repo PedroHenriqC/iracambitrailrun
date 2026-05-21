@@ -3,8 +3,8 @@ import { CheckCircle2, Clock3, Sparkles } from "lucide-react";
 import { motion } from "motion/react";
 
 const getMarkerIcon = (item) => {
-  if (item.highlight) return CheckCircle2;
   if (item.upcoming) return Clock3;
+  if (item.highlight) return CheckCircle2;
   return Sparkles;
 };
 
@@ -37,10 +37,10 @@ const TimelineItem = ({ item, index, isLast }) => {
       <div className="relative order-1 flex justify-center md:order-2">
         <div
           className={`relative z-10 grid h-11 w-11 place-items-center rounded-full border shadow-soft ${
-            item.highlight
-              ? "border-trail-gold bg-trail-gold text-forest-950"
-              : item.upcoming
-                ? "border-trail-gold/45 bg-forest-950 text-trail-gold"
+            item.upcoming
+              ? "border-trail-gold/45 bg-forest-950 text-trail-gold"
+              : item.highlight
+                ? "border-trail-gold bg-trail-gold text-forest-950"
                 : "border-forest-400/45 bg-forest-950 text-forest-300"
           }`}
         >

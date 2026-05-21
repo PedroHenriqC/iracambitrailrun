@@ -4,12 +4,13 @@ import { motion } from "motion/react";
 
 import SectionTitle from "../components/SectionTitle";
 import Button from "../components/Button";
+import { eventInfo } from "../data/eventData";
 
 const tags = [
-  "Trail Run",
-  "Mata Atlântica",
-  "~8km",
-  "Todas as idades",
+  "Trail Run 12km",
+  "Caminhada 3km",
+  "Corrida infantil",
+  "Via Sporttimer",
   "Impacto real",
 ];
 
@@ -51,22 +52,37 @@ const About = () => {
                   <em className="not-italic gradient-text">transforma</em>
                 </>
               }
-              subtitle="O Iracambi Trail Run não é só uma corrida. É uma experiência imersiva na Mata Atlântica, com propósito real, comunidade e impacto ambiental."
+              subtitle="O Iracambi Trail Run é uma experiência esportiva em meio à Mata Atlântica, com corrida de trilha, caminhada ecológica, corrida infantil e impacto ambiental real."
             />
 
             <div className="mb-10 space-y-6">
               <p className="font-body leading-relaxed text-cream-muted md:text-lg">
-                Criado pela ONG Iracambi, o evento leva atletas para correr
-                dentro da reserva da Mata Atlântica em Rosário da Limeira, MG.
-                São aproximadamente 8km de trilhas reais — com subidas,
-                descidas, travessias e muita natureza.
+                Criado pela ONG Iracambi, o evento leva participantes para uma
+                vivência dentro da reserva da Mata Atlântica em Rosário da
+                Limeira, MG. A 2ª edição contará com{" "}
+                <span className="font-semibold text-trail-gold">
+                  Trail Run 12km
+                </span>
+                ,{" "}
+                <span className="font-semibold text-trail-gold">
+                  caminhada ecológica 3km
+                </span>{" "}
+                e{" "}
+                <span className="font-semibold text-trail-gold">
+                  corrida infantil
+                </span>
+                .
               </p>
 
               <p className="font-body leading-relaxed text-cream-muted md:text-lg">
-                A segunda edição chega em 2026, após o sucesso histórico da
-                estreia em 2025, que reuniu mais de 80 atletas e mostrou que é
-                possível fazer esporte com alma, experiência e responsabilidade
-                ambiental.
+                A prova acontece em 05 de julho de 2026, com inscrições de{" "}
+                <span className="font-semibold text-cream">
+                  {eventInfo.inscriptionPeriod}
+                </span>
+                , via {eventInfo.registrationPlatform}. Cada inscrição também
+                contribui para o plantio de uma muda de árvore nativa, mantendo
+                o compromisso da Iracambi com o reflorestamento da Mata
+                Atlântica.
               </p>
             </div>
 
@@ -95,7 +111,8 @@ const About = () => {
                 </span>
 
                 <span className="max-w-xs leading-relaxed">
-                  Uma experiência entre esporte, floresta e comunidade.
+                  Esporte, floresta, comunidade e reflorestamento em uma única
+                  experiência.
                 </span>
               </div>
             </div>
@@ -195,12 +212,12 @@ const About = () => {
 
                 <div>
                   <p className="font-display text-xl font-bold leading-none text-cream">
-                    Mata Atlântica
+                    1 inscrição = 1 árvore
                   </p>
 
                   <p className="mt-2 text-xs leading-relaxed text-cream-muted">
-                    Uma corrida pensada para conectar movimento, paisagem e
-                    preservação.
+                    Cada inscrição contribui para o plantio de uma muda nativa
+                    da Mata Atlântica.
                   </p>
                 </div>
               </div>

@@ -67,7 +67,6 @@ const History = () => {
           </div>
 
           <SectionTitle
-            
             title={
               <>
                 De trilha em
@@ -75,7 +74,7 @@ const History = () => {
                 <em className="not-italic gradient-text">trilha</em>
               </>
             }
-            subtitle="O que começou como uma corrida de pés se expande em 2026 para novos desafios sobre rodas — sempre em meio à Mata Atlântica."
+            subtitle="Depois da primeira edição em 2025, o Iracambi Trail Run retorna em 2026 com Trail Run 12km, caminhada ecológica 3km, corrida infantil e o mesmo compromisso com a Mata Atlântica."
             align="center"
           />
         </motion.div>

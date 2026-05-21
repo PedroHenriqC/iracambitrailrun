@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 import { motion } from "motion/react";
 
 const sizeClasses = {
-  master: "min-h-24 px-8 py-6 md:min-h-28 md:px-10",
+  master: "min-h-36 px-10 py-8 md:min-h-40 md:px-12",
   normal: "min-h-20 px-5 py-5",
   small: "min-h-16 px-4 py-4",
 };
@@ -22,7 +22,7 @@ const SponsorCard = ({ sponsor, size = "normal" }) => {
 
   const content = (
     <>
-      <div className="relative z-10 flex w-full items-center justify-center">
+      <div className="relative z-10 flex w-full items-center justify-center text-center">
         {sponsor.logo ? (
           <div
             className={`relative z-10 grid place-items-center ${
@@ -44,7 +44,7 @@ const SponsorCard = ({ sponsor, size = "normal" }) => {
           </div>
         ) : (
           <span
-            className={`font-mono uppercase tracking-widest text-cream-subtle transition-colors duration-300 group-hover:text-cream-muted ${textSizeClasses[size]}`}
+            className={`font-mono uppercase tracking-widest text-cream-subtle transition-colors duration-300 group-hover:text-trail-gold ${textSizeClasses[size]}`}
           >
             {sponsor.name}
           </span>
@@ -59,7 +59,7 @@ const SponsorCard = ({ sponsor, size = "normal" }) => {
     </>
   );
 
-  const className = `glass-card group relative flex items-center justify-center overflow-hidden rounded-2xl transition-all duration-300 hover:border-trail-gold/30 ${sizeClasses[size]}`;
+  const className = `glass-card group relative flex items-center justify-center overflow-hidden rounded-2xl text-center transition-all duration-300 hover:border-trail-gold/30 ${sizeClasses[size]}`;
 
   if (hasUrl) {
     return (
@@ -83,7 +83,6 @@ const SponsorCard = ({ sponsor, size = "normal" }) => {
       className={className}
       whileHover={{ y: -4 }}
       transition={{ duration: 0.22, ease: "easeOut" }}
-      aria-label={sponsor.name}
     >
       {content}
     </motion.div>

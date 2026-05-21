@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 
-import { navLinks } from "../data/eventData";
+import { navLinks, eventInfo } from "../data/eventData";
 import Button from "../components/Button";
 
 const Header = () => {
@@ -112,8 +112,9 @@ const Header = () => {
             variant="outline"
             href="#inscricao"
             className="px-6 py-3 text-xs"
+            aria-label={`Inscrições de ${eventInfo.inscriptionPeriod}, via ${eventInfo.registrationPlatform}`}
           >
-            Inscrições em Breve
+            Inscrições 22/05 a 22/06
           </Button>
         </div>
 
@@ -166,14 +167,25 @@ const Header = () => {
                 </a>
               ))}
 
-              <Button
-                variant="outline"
-                href="#inscricao"
-                className="mt-3 justify-center text-center text-xs"
-                onClick={() => setMenuOpen(false)}
-              >
-                Inscrições em Breve
-              </Button>
+              <div className="mt-3 rounded-2xl border border-trail-gold/20 bg-trail-gold/10 p-4">
+                <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-trail-gold">
+                  Inscrições
+                </p>
+
+                <p className="mt-2 font-body text-sm leading-relaxed text-cream-muted">
+                  {eventInfo.inscriptionPeriod} · Via{" "}
+                  {eventInfo.registrationPlatform}
+                </p>
+
+                <Button
+                  variant="outline"
+                  href="#inscricao"
+                  className="mt-4 justify-center text-center text-xs"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Ver detalhes
+                </Button>
+              </div>
             </nav>
           </motion.div>
         )}

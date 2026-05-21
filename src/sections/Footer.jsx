@@ -7,19 +7,17 @@ import {
   MapPin,
   Sparkles,
 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 import { officialContact } from "../data/eventData";
 
-import { FaWhatsapp } from "react-icons/fa";
-
 const BLUENIX_INSTAGRAM_URL = "https://www.instagram.com/bluenix.tech/";
-
 const IRACAMBI_WHATSAPP_URL = `https://wa.me/${officialContact.whatsappNumber}`;
 
 const socialLinks = [
   {
     Icon: Instagram,
-    href: "https://www.instagram.com/ong_iracambi?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+    href: "https://www.instagram.com/ong_iracambi/",
     label: "Instagram da Iracambi",
   },
   {
@@ -27,12 +25,11 @@ const socialLinks = [
     href: "https://facebook.com/iracambi",
     label: "Facebook da Iracambi",
   },
-
- {
-  Icon: FaWhatsapp,
-  href: IRACAMBI_WHATSAPP_URL,
-  label: "WhatsApp oficial da Iracambi",
-},
+  {
+    Icon: FaWhatsapp,
+    href: IRACAMBI_WHATSAPP_URL,
+    label: "WhatsApp oficial da Iracambi",
+  },
 ];
 
 const navLinks = [
@@ -86,8 +83,9 @@ const Footer = () => {
             </div>
 
             <p className="mb-7 max-w-md font-body text-sm leading-relaxed text-cream-muted">
-              A corrida mais charmosa da região, realizada dentro da Reserva da
-              Mata Atlântica da ONG Iracambi em Rosário da Limeira, MG.
+              Evento esportivo em meio à Mata Atlântica, com Trail Run 12km,
+              caminhada ecológica 3km, corrida infantil e impacto ambiental em
+              Rosário da Limeira, MG.
             </p>
 
             {/* Social */}
@@ -113,7 +111,10 @@ const Footer = () => {
               Navegação
             </p>
 
-            <nav className="grid grid-cols-1 gap-3" aria-label="Navegação do rodapé">
+            <nav
+              className="grid grid-cols-1 gap-3"
+              aria-label="Navegação do rodapé"
+            >
               {navLinks.map((link) => (
                 <a
                   key={link.href}
@@ -134,13 +135,31 @@ const Footer = () => {
 
             <div className="space-y-4">
               <a
-                    href={`mailto:${officialContact.email}`}
-                    className="group flex items-center gap-3 text-cream-muted transition-colors hover:text-cream">
-                    <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full border border-trail-gold/20 bg-trail-gold/10 text-trail-gold">
+                href={`mailto:${officialContact.email}`}
+                className="group flex items-center gap-3 text-cream-muted transition-colors hover:text-cream"
+                aria-label="Enviar e-mail para contato da Iracambi"
+              >
+                <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full border border-trail-gold/20 bg-trail-gold/10 text-trail-gold">
                   <Mail size={14} strokeWidth={2.4} aria-hidden="true" />
                 </span>
 
-                <span className="font-body text-sm">{officialContact.email}</span>
+                <span className="font-body text-sm">
+                  {officialContact.email}
+                </span>
+              </a>
+
+              <a
+                href={IRACAMBI_WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 text-cream-muted transition-colors hover:text-cream"
+                aria-label="Abrir WhatsApp oficial da Iracambi"
+              >
+                <span className="grid h-9 w-9 flex-shrink-0 place-items-center rounded-full border border-trail-gold/20 bg-trail-gold/10 text-trail-gold">
+                  <FaWhatsapp size={15} aria-hidden="true" />
+                </span>
+
+                <span className="font-body text-sm">WhatsApp oficial</span>
               </a>
 
               <div className="flex items-start gap-3 text-cream-muted">
@@ -184,19 +203,19 @@ const Footer = () => {
           </p>
 
           <div className="flex flex-col items-center gap-4 sm:flex-row">
-              <p className="text-center font-mono text-[10px] uppercase tracking-widest text-cream-subtle">
-                Design e desenvolvimento por{" "}
-                <a
-                  href={BLUENIX_INSTAGRAM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-trail-gold transition-colors hover:text-cream"
-                  aria-label="Abrir Instagram da Bluenix"
-                >
-                  Bluenix
-                </a>{" "}
-                em parceria com Luiz Henrique e Manoel Rodrigues
-              </p>
+            <p className="text-center font-mono text-[10px] uppercase tracking-widest text-cream-subtle">
+              Design e desenvolvimento por{" "}
+              <a
+                href={BLUENIX_INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-trail-gold transition-colors hover:text-cream"
+                aria-label="Abrir Instagram da Bluenix"
+              >
+                Bluenix
+              </a>{" "}
+              em parceria com Luiz Henrique e Manoel Rodrigues
+            </p>
 
             <div className="flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.035] px-3 py-2">
               <Sparkles
@@ -207,7 +226,7 @@ const Footer = () => {
               />
 
               <p className="font-mono text-[10px] uppercase tracking-widest text-cream-subtle">
-                Preservando a Mata Atlântica desde 2000
+                1 inscrição = 1 muda nativa
               </p>
             </div>
           </div>

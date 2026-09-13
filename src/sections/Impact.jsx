@@ -111,8 +111,8 @@ const Impact = () => {
                 </div>
 
                 <p className="font-body text-sm leading-relaxed text-cream-muted md:text-base">
-                  Para cada inscrição realizada, a Iracambi irá plantar uma muda
-                  de árvore, fortalecendo seu compromisso de reflorestar a Mata
+                  Para cada inscrição realizada, a Iracambi plantou uma muda de
+                  árvore, fortalecendo seu compromisso de reflorestar a Mata
                   Atlântica.
                 </p>
               </div>

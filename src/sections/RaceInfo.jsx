@@ -138,7 +138,7 @@ const VideoCard = () => {
           poster="/images/mata-atlantica.jpg"
           aria-label="Vídeo da edição de 2025 do Iracambi Trail Run"
         >
-          <source src="/videos/iracambi-run-2025.mp4" type="video/mp4" />
+          <source src="/videos/iracambi-run-2025-web.mp4" type="video/mp4" />
         </video>
 
         <div
@@ -195,7 +195,7 @@ const BusCard = () => {
         </p>
 
         <p className="mt-2 font-body text-xs leading-relaxed text-cream-muted">
-          Saída prevista às 6h de Muriaé, com retorno por volta de 12h30.
+          Saída às 6h de Muriaé, com retorno por volta de 12h30.
         </p>
       </div>
     </motion.div>
@@ -242,7 +242,7 @@ const RaceInfo = () => {
                   precisa <em className="not-italic gradient-text">saber</em>
                 </>
               }
-              subtitle={`A 2ª edição reúne Trail Run 12km, caminhada ecológica 3km e corrida infantil, com inscrições pela ${eventInfo.registrationPlatform} e vagas limitadas.`}
+              subtitle={`A 2ª edição reuniu Trail Run 12km, caminhada ecológica 3km e corrida infantil, com inscrições pela ${eventInfo.registrationPlatform} e vagas limitadas.`}
             />
 
             <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">

@@ -58,7 +58,7 @@ const OfficialVideo = () => {
 
           <p className="mx-auto mt-5 max-w-2xl font-body text-base leading-relaxed text-cream-muted md:text-lg">
             Confira o vídeo oficial da 2ª edição e sinta um pouco da energia que
-            espera por você nas trilhas da Mata Atlântica.
+            marcou as trilhas da Mata Atlântica.
           </p>
         </div>
 
@@ -114,7 +114,7 @@ const OfficialVideo = () => {
                 <CalendarDays size={15} strokeWidth={2.4} aria-hidden="true" />
 
                 <span className="font-mono text-[10px] uppercase tracking-[0.2em]">
-                  Inscrever-se
+                  Ver edição na MultSports
                 </span>
 
                 <ArrowUpRight size={13} strokeWidth={2.4} aria-hidden="true" />

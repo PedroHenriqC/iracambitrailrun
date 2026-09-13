@@ -59,7 +59,7 @@ const About = () => {
               <p className="font-body leading-relaxed text-cream-muted md:text-lg">
                 Criado pela ONG Iracambi, o evento leva participantes para uma
                 vivência dentro da reserva da Mata Atlântica em Rosário da
-                Limeira, MG. A 2ª edição contará com{" "}
+                Limeira, MG. A 2ª edição contou com{" "}
                 <span className="font-semibold text-trail-gold">
                   Trail Run 12km
                 </span>
@@ -75,12 +75,12 @@ const About = () => {
               </p>
 
               <p className="font-body leading-relaxed text-cream-muted md:text-lg">
-                A prova acontece em 05 de julho de 2026, com inscrições de{" "}
+                A 2ª edição contou com inscrições de{" "}
                 <span className="font-semibold text-cream">
                   {eventInfo.inscriptionPeriod}
                 </span>
                 , pela {eventInfo.registrationPlatform}. Cada inscrição também
-                contribui para o plantio de uma muda de árvore nativa, mantendo
+                contribuiu para o plantio de uma muda de árvore nativa, mantendo
                 o compromisso da Iracambi com o reflorestamento da Mata
                 Atlântica.
               </p>
@@ -101,7 +101,7 @@ const About = () => {
 
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
               <Button variant="primary" href={eventInfo.registrationUrl}>
-                Inscrever-se agora
+                Ver edição na MultSports
                 <ArrowRight size={16} aria-hidden="true" />
               </Button>
 

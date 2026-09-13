@@ -2,7 +2,6 @@
 // EVENT DATA — edit here to update all sections
 // ============================================================
 
-
 export const officialContact = {
   email: "relacionamento@iracambi.com",
   whatsappNumber: "5532998702917",
@@ -17,7 +16,7 @@ export const eventInfo = {
   distance: "12km",
   environment: "Mata Atlântica",
   type: "Trail Run 12km",
-  inscriptionsOpen: true,
+  inscriptionsOpen: false,
 
   inscriptionPeriod: "22 de maio a 22 de junho de 2026",
   walkingDistance: "3km",
@@ -26,7 +25,7 @@ export const eventInfo = {
   registrationPlatform: "MultSports Eventos",
   registrationUrl:
     "https://www.multsportseventos.com/event-details/2-iracambi-trail-run-rosario-da-limeira-mg",
-  kitStatus: "Kit atleta disponível",
+  kitStatus: "Kit atleta entregue aos participantes",
 
   eventDate: new Date(2026, 6, 5, 8, 0, 0),
   organizerName: "ONG Iracambi",
@@ -49,7 +48,7 @@ export const navLinks = [
 export const stats = [
   { value: "12km", label: "trail run" },
   { value: "3km", label: "caminhada ecológica" },
-  { value: "150", label: "vagas limitadas" },
+  { value: "150", label: "participantes" },
   { value: "1 árvore", label: "por inscrição" },
 ];
 
@@ -57,22 +56,26 @@ export const impactCards = [
   {
     icon: "tree",
     title: "1 Inscrição = 1 Árvore",
-    description: "Cada atleta que participa contribui diretamente com o plantio de uma muda nativa da Mata Atlântica.",
+    description:
+      "Cada atleta que participa contribui diretamente com o plantio de uma muda nativa da Mata Atlântica.",
   },
   {
     icon: "leaf",
     title: "Restauração Florestal",
-    description: "A ONG Iracambi atua há mais de 20 anos restaurando fragmentos de Mata Atlântica no bioma mais ameaçado do Brasil.",
+    description:
+      "A ONG Iracambi atua há mais de 20 anos restaurando fragmentos de Mata Atlântica no bioma mais ameaçado do Brasil.",
   },
   {
     icon: "droplets",
     title: "Proteção das Nascentes",
-    description: "As trilhas percorridas pelos atletas cortam áreas de preservação que protegem nascentes e rios da região.",
+    description:
+      "As trilhas percorridas pelos atletas cortam áreas de preservação que protegem nascentes e rios da região.",
   },
   {
     icon: "globe",
     title: "Ciência + Comunidade",
-    description: "O Iracambi conecta pesquisadores, voluntários internacionais e comunidade local em prol da conservação.",
+    description:
+      "O Iracambi conecta pesquisadores, voluntários internacionais e comunidade local em prol da conservação.",
   },
 ];
 
@@ -91,7 +94,7 @@ export const timeline = [
     title: "Inscrições Oficiais",
     subtitle: "22 de maio a 22 de junho",
     description:
-      "As inscrições da 2ª edição acontecem pela MultSports Eventos, com vagas limitadas e modalidades para Trail Run 12km, caminhada ecológica 3km e corrida infantil.",
+      "As inscrições da 2ª edição aconteceram pela MultSports Eventos, com vagas limitadas e modalidades para Trail Run 12km, caminhada ecológica 3km e corrida infantil.",
     highlight: false,
     upcoming: true,
     tag: "MultSports",
@@ -101,13 +104,12 @@ export const timeline = [
     title: "2ª Trail Run",
     subtitle: "05 de julho de 2026",
     description:
-      "A segunda edição acontece em 05 de julho de 2026, com largada e chegada na sede da ONG Iracambi, reunindo esporte, natureza, comunidade e impacto ambiental.",
+      "A segunda edição aconteceu em 05 de julho de 2026, com largada e chegada na sede da ONG Iracambi, reunindo esporte, natureza, comunidade e impacto ambiental.",
     tag: "Data oficial",
     upcoming: true,
     highlight: true,
   },
 ];
-
 
 export const galleryCategories = [
   { id: "todos", label: "Todos" },
@@ -329,23 +331,24 @@ export const sponsors = {
 
 export const faqItems = [
   {
-    question: "Quando acontecem as inscrições?",
+    question: "Quando aconteceram as inscrições?",
     answer:
-      "As inscrições acontecem de 22 de maio a 22 de junho de 2026, pela MultSports Eventos, por meio do link oficial divulgado pela organização.",
+      "As inscrições aconteceram de 22 de maio a 22 de junho de 2026, pela MultSports Eventos, por meio do link oficial divulgado pela organização.",
   },
   {
     question: "Qual a distância do percurso?",
     answer:
-      "A prova principal terá aproximadamente 12km em trilhas dentro da reserva da Mata Atlântica da ONG Iracambi.",
+      "A prova principal teve aproximadamente 12km em trilhas dentro da reserva da Mata Atlântica da ONG Iracambi.",
   },
   {
     question: "Haverá caminhada ecológica?",
-    answer: "Sim. O evento contará com caminhada ecológica de 3km.",
+    answer:
+      "Sim. O evento Sim. O evento contou com caminhada ecológica de 3km. com caminhada ecológica de 3km.",
   },
   {
     question: "Haverá corrida infantil?",
     answer:
-      "Sim. O evento também terá corrida infantil com categorias específicas.",
+      "Sim. O evento também Sim. O evento também teve corrida infantil com categorias específicas. corrida infantil com categorias específicas.",
   },
   {
     question: "A corrida é para qualquer nível?",
@@ -355,30 +358,36 @@ export const faqItems = [
   {
     question: "O que está incluso na inscrição?",
     answer:
-      "O evento contará com kit atleta disponível. As informações completas sobre valores, modalidades e itens do kit estarão na página oficial de inscrição.",
+      "O evento contou com kit atleta para os participantes. As informações completas sobre valores, modalidades e itens do kit estarão na página oficial de inscrição.",
   },
   {
     question: "Como chegar à ONG Iracambi?",
     answer:
-      "A ONG Iracambi está localizada em Rosário da Limeira, MG. O evento contará com ônibus gratuito saindo de Muriaé no dia do evento.",
+      "A ONG Iracambi está localizada em Rosário da Limeira, MG. O evento O evento contou com ônibus gratuito saindo de Muriaé no dia do evento. com ônibus gratuito saindo de Muriaé no dia do evento.",
   },
   {
     question: "O evento tem compromisso ambiental?",
     answer:
-      "Sim. A Iracambi plantará uma muda de árvore para cada inscrição realizada, reforçando seu compromisso com o reflorestamento da Mata Atlântica.",
+      "Sim. A Iracambi Sim. A Iracambi plantou uma muda de árvore para cada inscrição realizada, reforçando seu compromisso com o reflorestamento da Mata Atlântica. uma muda de árvore para cada inscrição realizada, reforçando seu compromisso com o reflorestamento da Mata Atlântica.",
   },
 ];
 
 export const socialLinks = [
-  { name: "Instagram", handle: "@iracambi", url: "https://instagram.com/iracambi" },
-  { name: "Facebook", handle: "Iracambi", url: "https://facebook.com/iracambi" },
   {
-
+    name: "Instagram",
+    handle: "@iracambi",
+    url: "https://instagram.com/iracambi",
+  },
+  {
+    name: "Facebook",
+    handle: "Iracambi",
+    url: "https://facebook.com/iracambi",
+  },
+  {
     name: "WhatsApp",
 
     handle: "Contato oficial",
 
     url: `https://wa.me/${officialContact.whatsappNumber}`,
-
   },
 ];

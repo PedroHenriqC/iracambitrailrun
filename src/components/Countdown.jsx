@@ -108,7 +108,7 @@ const Countdown = () => {
   const statusText = !timeLeft.isValid
     ? "Data do evento em validação"
     : timeLeft.isFinished
-      ? "A largada começou"
+      ? "A 2ª edição já aconteceu"
       : "A 2ª edição está chegando";
 
   return (
@@ -136,7 +136,7 @@ const Countdown = () => {
         <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-trail-gold/25 bg-trail-gold/10 px-4 py-2">
           <Clock3 size={14} className="text-trail-gold" aria-hidden="true" />
           <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-trail-gold">
-            Contagem regressiva
+            2ª edição realizada
           </span>
         </div>
 
@@ -192,7 +192,7 @@ const Countdown = () => {
             className="inline-flex items-center gap-2 rounded-full border border-trail-gold/25 bg-trail-gold/10 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-trail-gold transition-all duration-300 hover:-translate-y-0.5 hover:border-trail-gold hover:bg-trail-gold hover:text-forest-950"
             aria-label="Abrir inscrição oficial do Iracambi Trail Run"
           >
-            Inscrever-se
+            Ver edição na MultSports
             <ArrowUpRight size={13} strokeWidth={2.4} aria-hidden="true" />
           </a>
         </div>

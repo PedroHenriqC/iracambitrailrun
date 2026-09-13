@@ -51,7 +51,7 @@ const featureCards = [
   },
   {
     icon: Ticket,
-    title: "Kit atleta disponível",
+    title: "Kit atleta entregue aos participantes",
     description: "Informações completas no ambiente oficial de inscrição.",
   },
 ];
@@ -118,7 +118,7 @@ const Registration = () => {
               />
 
               <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-trail-gold sm:text-[11px]">
-                Inscrições 22/05 a 22/06
+                Inscrições encerradas
               </span>
             </div>
 
@@ -126,13 +126,13 @@ const Registration = () => {
               id="registration-title"
               className="mb-6 max-w-3xl font-display text-[clamp(2.6rem,8vw,6.5rem)] font-bold leading-[0.92] tracking-[-0.07em] text-cream"
             >
-              Garanta sua
+              Como foi
               <br />
               <em className="not-italic gradient-text">vaga em 2026</em>
             </h2>
 
             <p className="mb-8 max-w-2xl font-body text-lg leading-relaxed text-cream-muted md:text-xl">
-              As inscrições acontecem de{" "}
+              As inscrições aconteceram de{" "}
               <span className="font-semibold text-trail-gold">
                 {eventInfo.inscriptionPeriod}
               </span>
@@ -169,7 +169,7 @@ const Registration = () => {
               whileTap={{ scale: 0.98 }}
               aria-label="Abrir inscrição oficial do Iracambi Trail Run"
             >
-              Inscrever-se agora
+              Ver edição na MultSports
               <ArrowUpRight size={16} strokeWidth={2.4} aria-hidden="true" />
             </motion.a>
 
@@ -248,12 +248,12 @@ const Registration = () => {
 
                     <div>
                       <p className="font-display text-base font-semibold text-cream">
-                        Vagas limitadas
+                        Limite de participantes
                       </p>
 
                       <p className="mt-1 font-body text-xs leading-relaxed text-cream-muted">
-                        Limite total de {eventInfo.vacancies}. As inscrições
-                        podem encerrar antes caso o limite seja atingido.
+                        O limite desta edição foi de {eventInfo.vacancies}. As
+                        inscrições já estão encerradas.
                       </p>
                     </div>
                   </div>

@@ -114,7 +114,7 @@ const Header = () => {
             className="px-6 py-3 text-xs"
             aria-label={`Inscrição oficial pela ${eventInfo.registrationPlatform}`}
           >
-            Inscrever-se
+            Ver edição na MultSports
           </Button>
         </div>
 
@@ -169,7 +169,7 @@ const Header = () => {
 
               <div className="mt-3 rounded-2xl border border-trail-gold/20 bg-trail-gold/10 p-4">
                 <p className="font-mono text-[10px] uppercase tracking-[0.24em] text-trail-gold">
-                  Inscrições
+                  2ª edição
                 </p>
 
                 <p className="mt-2 font-body text-sm leading-relaxed text-cream-muted">
@@ -183,7 +183,7 @@ const Header = () => {
                   className="mt-4 justify-center text-center text-xs"
                   onClick={() => setMenuOpen(false)}
                 >
-                  Inscrever-se
+                  Ver edição na MultSports
                 </Button>
               </div>
             </nav>

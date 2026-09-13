@@ -170,7 +170,7 @@ const Hero = () => {
               <Clock size={13} className="text-trail-gold" aria-hidden="true" />
 
               <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-trail-gold sm:text-[11px]">
-                Inscrições abertas
+                2ª edição realizada · Julho 2026
               </span>
 
               <span
@@ -217,7 +217,7 @@ const Hero = () => {
             {/* CTA buttons */}
             <div className="hero-animate flex w-full flex-col gap-4 sm:w-auto sm:flex-row">
               <Button variant="primary" href={eventInfo.registrationUrl}>
-                Inscrever-se agora
+                Ver edição na MultSports
               </Button>
 
               <Button variant="outline" href="#informacoes">
@@ -254,7 +254,7 @@ const Hero = () => {
           >
             <div className="mb-6 rounded-full border border-trail-gold/25 bg-trail-gold/10 px-4 py-2">
               <span className="font-mono text-[10px] uppercase tracking-[0.24em] text-trail-gold">
-                Próxima experiência
+                A experiência de 2026
               </span>
             </div>
 
@@ -288,7 +288,8 @@ const Hero = () => {
             <div className="mt-5 rounded-2xl bg-forest-400/10 p-4">
               <p className="text-sm leading-relaxed text-cream-muted">
                 Inscrições via {eventInfo.registrationPlatform}, com vagas
-                limitadas e kit atleta disponível.
+                limitadas e vagas limitadas e vagas limitadas e kit atleta
+                disponível...
               </p>
             </div>
           </motion.aside>
